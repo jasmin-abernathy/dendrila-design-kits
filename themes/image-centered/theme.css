@@ -408,3 +408,34 @@
   .d-button { transition: none; }
   .d-button:hover { transform: none; }
 }
+
+/* Optional theme-owned frames and image shapes. */
+.d-media[data-media-shape="arch"] .d-media__image {
+  border-radius: 50% 50% 0 0 / 24% 24% 0 0;
+}
+.d-media[data-media-shape="circle"] {
+  aspect-ratio: 1;
+}
+.d-media[data-media-shape="circle"] .d-media__image {
+  border-radius: 50%;
+}
+[data-dendrila-theme="image-centered"][data-dendrila-illustration-style="line"] .d-section--soft {
+  position: relative;
+  overflow: hidden;
+}
+[data-dendrila-theme="image-centered"][data-dendrila-illustration-style="line"] .d-section--soft::after {
+  content: "";
+  position: absolute;
+  width: 13rem;
+  height: 13rem;
+  right: 1rem;
+  top: 1rem;
+  background: var(--dendrila-color-primary);
+  opacity: .08;
+  -webkit-mask: url("assets/motifs/frame-lines.svg") center / contain no-repeat;
+  mask: url("assets/motifs/frame-lines.svg") center / contain no-repeat;
+  pointer-events: none;
+}
+[data-dendrila-theme="image-centered"][data-dendrila-illustration-frequency="none"] .d-section--soft::after {
+  display: none;
+}

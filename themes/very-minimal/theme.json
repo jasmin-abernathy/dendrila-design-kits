@@ -3,7 +3,7 @@
   "id": "very-minimal",
   "design_style_id": "very-minimal",
   "label": "Très minimal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Thème radicalement sobre : hiérarchie typographique forte, lignes fines, très peu de décor et aucune carte superflue.",
   "entrypoint": "theme.css",
   "preview": "preview/index.html",
@@ -24,6 +24,7 @@
   "media_shapes": [
     "auto",
     "rounded",
+    "circle",
     "none"
   ],
   "brand_tokens": [
@@ -54,5 +55,20 @@
     "--dendrila-media-emphasis",
     "--dendrila-accent-strength",
     "--dendrila-motion-duration"
-  ]
+  ],
+  "decorative_system": {
+    "no_upload_required": true,
+    "motifs": [
+      "none",
+      "hairline"
+    ],
+    "default_motif": "none",
+    "image_shapes": [
+      "auto",
+      "rounded",
+      "circle",
+      "none"
+    ],
+    "implementation": "theme-owned-css-svg"
+  }
 }

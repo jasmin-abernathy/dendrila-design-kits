@@ -25,3 +25,8 @@ Les séparateurs remplacent la plupart des conteneurs. Les grilles deviennent ra
 - réduire les tailles de texte au point de perdre la hiérarchie ;
 - ajouter des arrondis ou cartes pour remplir l'espace ;
 - masquer les interactions faute d'affordance.
+
+
+## Décor sans asset client
+
+Le thème garde le décor désactivé par défaut. S’il faut un repère visuel, le mode `line` ajoute uniquement un trait CSS et la forme `circle` peut être appliquée à une image source normale. Aucun fichier décoratif n’est demandé au site.

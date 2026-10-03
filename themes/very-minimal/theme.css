@@ -366,3 +366,25 @@
   [data-dendrila-theme="very-minimal"] { --dendrila-motion-duration: 0ms; }
   .d-button { transition: none; }
 }
+
+/* Minimal decoration remains CSS-only: no asset upload. */
+.d-media[data-media-shape="circle"] {
+  aspect-ratio: 1;
+}
+.d-media[data-media-shape="circle"] .d-media__image {
+  border-radius: 50%;
+}
+[data-dendrila-theme="very-minimal"][data-dendrila-illustration-style="line"] .d-section__heading {
+  position: relative;
+  padding-left: 1rem;
+}
+[data-dendrila-theme="very-minimal"][data-dendrila-illustration-style="line"] .d-section__heading::before {
+  content: "";
+  position: absolute;
+  inset: .15rem auto .15rem 0;
+  width: 1px;
+  background: var(--dendrila-color-primary);
+}
+[data-dendrila-theme="very-minimal"][data-dendrila-illustration-frequency="none"] .d-section__heading::before {
+  display: none;
+}
