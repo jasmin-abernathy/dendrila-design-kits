@@ -3,7 +3,7 @@
   "id": "simple-illustrated",
   "design_style_id": "simple-illustrated",
   "label": "Simple avec quelques illustrations",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Thème de base clair et respirant, avec illustrations ponctuelles, cartes sobres et médias façonnés sans modifier les fichiers source.",
   "entrypoint": "theme.css",
   "preview": "preview/index.html",
@@ -19,7 +19,8 @@
     "footer",
     "gallery",
     "key-values",
-    "embed"
+    "embed",
+    "statistics"
   ],
   "media_shapes": [
     "auto",

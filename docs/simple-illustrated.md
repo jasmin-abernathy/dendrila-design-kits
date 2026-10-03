@@ -111,3 +111,6 @@ La version 0.2 du kit couvre également les blocs génériques nécessaires au p
 - attributs de structure pour l'ordre du hero et l'alignement.
 
 Le thème ne décide pas du contenu : le renderer du CMS produit le HTML sémantique commun, tandis que le design kit détermine son apparence.
+
+
+Le composant `statistics` fournit aussi des chiffres-clés déclaratifs, sans script ni dépendance. Les attributs `data-dendrila-media-crop` et `data-dendrila-full-bleed` permettent au renderer d'appliquer les derniers tokens structurels du preset sans modifier le contenu.
