@@ -25,7 +25,7 @@ grep -Fq '.d-gallery {' "$CSS"
 grep -Fq '.d-key-values {' "$CSS"
 grep -Fq '.d-embed {' "$CSS"
 grep -Fq 'data-dendrila-gallery="masonry"' "$CSS"
-grep -Fq '"version": "0.2.1"' "$JSON"
+grep -Fq '"version": "0.3.0"' "$JSON"
 grep -Fq '.d-stats {' "$CSS"
 grep -Fq 'data-dendrila-media-crop="natural"' "$CSS"
 grep -Fq 'data-dendrila-full-bleed="true"' "$CSS"
@@ -96,3 +96,7 @@ for entry in catalog.get("themes", []):
     if not all(isinstance(token, str) and token.startswith("--dendrila-") for token in tokens):
         raise SystemExit("Invalid required style token")
 PY
+grep -Fq '.d-hero__media {' "$CSS"
+grep -Fq 'grid-template-columns: repeat(2, minmax(0, 1fr));' "$CSS"
+grep -Fq '[data-dendrila-consent-allow]' "$CSS"
+grep -Fq -- '--d-media-aspect: 3 / 2' "$CSS"
