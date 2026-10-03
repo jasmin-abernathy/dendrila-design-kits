@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dendrila Design Kit Catalog",
+  "type": "object",
+  "required": ["schema_version", "themes"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "themes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": ["id", "design_style_id", "version", "path", "manifest"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+          "design_style_id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+          "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+          "path": { "type": "string", "pattern": "^[a-zA-Z0-9_./-]+$" },
+          "manifest": { "type": "string", "pattern": "^[a-zA-Z0-9_.-]+\\.json$" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

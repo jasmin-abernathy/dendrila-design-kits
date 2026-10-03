@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "themes": [
+    {
+      "id": "simple-illustrated",
+      "design_style_id": "simple-illustrated",
+      "version": "0.1.1",
+      "path": "themes/simple-illustrated",
+      "manifest": "theme.json"
+    }
+  ]
+}

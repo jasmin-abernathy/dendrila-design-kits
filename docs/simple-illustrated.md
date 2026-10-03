@@ -81,7 +81,7 @@ Le design kit propose des valeurs neutres de secours. L'identité du site devrai
 
 ## Relation avec les tokens Dendrila
 
-Le thème lit directement les variables `--mmw-*` produites par `CssTokenCompiler`.
+Le thème lit directement les variables `--dendrila-*` produites par `CssTokenCompiler`.
 
 Il ne remplace pas le preset et ne duplique pas son rôle : les tokens décident de l'intention, le design kit fournit les composants qui savent l'appliquer.
 

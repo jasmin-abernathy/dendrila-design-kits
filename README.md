@@ -44,18 +44,20 @@ Voir `themes/simple-illustrated/` et `docs/simple-illustrated.md`.
 
 Le thème `simple-illustrated` consomme les variables compilées par le preset `design-styles/simple-illustrated/style.json` de Dendrila CMS, notamment :
 
-- `--mmw-content-max`
-- `--mmw-section-gap`
-- `--mmw-text-max`
-- `--mmw-radius`
-- `--mmw-border-width`
-- `--mmw-shadow`
-- `--mmw-heading-scale`
-- `--mmw-media-emphasis`
-- `--mmw-accent-strength`
-- `--mmw-motion-duration`
+- `--dendrila-content-max`
+- `--dendrila-section-gap`
+- `--dendrila-text-max`
+- `--dendrila-radius`
+- `--dendrila-border-width`
+- `--dendrila-shadow`
+- `--dendrila-heading-scale`
+- `--dendrila-media-emphasis`
+- `--dendrila-accent-strength`
+- `--dendrila-motion-duration`
 
-Le thème ajoute ensuite un petit contrat de marque `--dendrila-*` pour les couleurs et polices. Ces valeurs doivent être alimentées par la composition du site ou l'adaptateur front.
+Le thème consomme directement ces variables de style `--dendrila-*`. Il ajoute en parallèle un contrat de marque distinct (`--dendrila-color-*` et `--dendrila-font-*`) pour les couleurs et polices. Ces valeurs doivent être alimentées par la composition du site ou l'adaptateur front.
+
+Le fichier `catalog.json` est le point d’entrée machine du dépôt. Dendrila CMS peut le lire localement au déploiement pour résoudre un `design_style` vers un design kit installé, sans téléchargement de code à l’exécution.
 
 ## Validation
 
