@@ -841,3 +841,27 @@
     transform: none;
   }
 }
+
+/* Theme-owned decorative assets: no client upload required. */
+[data-dendrila-theme="simple-illustrated"][data-dendrila-illustration-style="line"] .d-section--soft,
+[data-dendrila-theme="simple-illustrated"][data-dendrila-illustration-style="organic"] .d-section--soft {
+  position: relative;
+  overflow: hidden;
+}
+[data-dendrila-theme="simple-illustrated"][data-dendrila-illustration-style="line"] .d-section--soft::after,
+[data-dendrila-theme="simple-illustrated"][data-dendrila-illustration-style="organic"] .d-section--soft::after {
+  content: "";
+  position: absolute;
+  width: 11rem;
+  height: 11rem;
+  right: -2rem;
+  bottom: -2rem;
+  background: var(--dendrila-color-primary);
+  opacity: .08;
+  -webkit-mask: url("assets/motifs/organic-line.svg") center / contain no-repeat;
+  mask: url("assets/motifs/organic-line.svg") center / contain no-repeat;
+  pointer-events: none;
+}
+[data-dendrila-theme="simple-illustrated"][data-dendrila-illustration-frequency="none"] .d-section--soft::after {
+  display: none;
+}

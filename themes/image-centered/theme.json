@@ -3,7 +3,7 @@
   "id": "image-centered",
   "design_style_id": "image-centered",
   "label": "Centré sur les images",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Thème immersif où les photographies structurent la page : hero plein cadre, galeries fortes, textes courts et respirants.",
   "entrypoint": "theme.css",
   "preview": "preview/index.html",
@@ -24,6 +24,8 @@
   "media_shapes": [
     "auto",
     "rounded",
+    "arch",
+    "circle",
     "none"
   ],
   "brand_tokens": [
@@ -54,5 +56,21 @@
     "--dendrila-media-emphasis",
     "--dendrila-accent-strength",
     "--dendrila-motion-duration"
-  ]
+  ],
+  "decorative_system": {
+    "no_upload_required": true,
+    "motifs": [
+      "none",
+      "frame-lines"
+    ],
+    "default_motif": "none",
+    "image_shapes": [
+      "auto",
+      "rounded",
+      "arch",
+      "circle",
+      "none"
+    ],
+    "implementation": "theme-owned-css-svg"
+  }
 }

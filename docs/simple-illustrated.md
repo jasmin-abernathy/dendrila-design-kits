@@ -129,3 +129,8 @@ La version 0.3 affine le thème après contrôle sur téléphone et grand écran
 - largeur des médias du hero bornée sur desktop et mobile.
 
 Ces ajustements restent purement visuels et ne modifient ni le contenu ni les médias source.
+
+
+## Décor sans asset client
+
+Les formes organiques, arches et cercles sont appliqués au média source par CSS/SVG. Le motif `organic-line` est fourni par le thème et peut être activé via les attributs d’illustration du renderer. Aucun blob, masque ou illustration décorative n’est demandé à l’utilisateur.

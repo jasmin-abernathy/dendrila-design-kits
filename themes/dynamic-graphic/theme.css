@@ -471,3 +471,35 @@
   .d-button { transition: none; }
   .d-button:hover { transform: none; }
 }
+
+/* Theme-owned geometric motif and optional image shapes. */
+.d-media[data-media-shape="arch"] .d-media__image {
+  border-radius: 50% 50% .25rem .25rem / 24% 24% .25rem .25rem;
+}
+.d-media[data-media-shape="circle"] {
+  aspect-ratio: 1;
+}
+.d-media[data-media-shape="circle"] .d-media__image {
+  border-radius: 50%;
+}
+[data-dendrila-theme="dynamic-graphic"][data-dendrila-illustration-style="geometric"] .d-section--soft,
+[data-dendrila-theme="dynamic-graphic"][data-dendrila-illustration-style="line"] .d-section--soft {
+  overflow: hidden;
+}
+[data-dendrila-theme="dynamic-graphic"][data-dendrila-illustration-style="geometric"] .d-section--soft::after,
+[data-dendrila-theme="dynamic-graphic"][data-dendrila-illustration-style="line"] .d-section--soft::after {
+  content: "";
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  right: -4rem;
+  bottom: -5rem;
+  background: var(--dendrila-color-primary);
+  opacity: .08;
+  -webkit-mask: url("assets/motifs/diagonal-grid.svg") center / contain no-repeat;
+  mask: url("assets/motifs/diagonal-grid.svg") center / contain no-repeat;
+  pointer-events: none;
+}
+[data-dendrila-theme="dynamic-graphic"][data-dendrila-illustration-frequency="none"] .d-section--soft::after {
+  display: none;
+}

@@ -4,11 +4,9 @@
 
 Le média porte la première impression. Le texte reste court, lisible et secondaire par rapport aux photographies.
 
-Les références validées montrent deux bornes complémentaires :
-- un hero très immersif avec texte superposé à une image forte ;
-- une version plus éditoriale où les images structurent la composition sans saturer toute la page.
+La référence retenue est la première maquette photographique immersive : hero plein cadre, texte superposé, chiffres-clés, contenu secondaire et galerie très visuelle.
 
-Le design kit doit pouvoir couvrir les deux sans devenir un thème magazine.
+La deuxième maquette initialement envoyée a été explicitement écartée et ne doit plus influencer ce design kit.
 
 ## Signature visuelle
 
@@ -30,3 +28,8 @@ Le hero conserve une seule grande image mais le dégradé se verticalise pour ga
 - ajouter des formes décoratives indépendantes des médias ;
 - imposer une palette sectorielle ;
 - masquer un texte essentiel directement dans une photo sans contraste suffisant.
+
+
+## Décor sans asset client
+
+Le thème fournit lui-même un motif optionnel `frame-lines` ainsi que les formes `rounded`, `arch` et `circle`. L'image originale reste intacte : le cadrage et la forme sont appliqués en CSS.

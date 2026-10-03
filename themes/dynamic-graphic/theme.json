@@ -3,7 +3,7 @@
   "id": "dynamic-graphic",
   "design_style_id": "dynamic-graphic",
   "label": "Dynamique et graphique",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Thème expressif fondé sur de grandes compositions, des aplats contrastés, des découpes géométriques et une forte hiérarchie éditoriale.",
   "entrypoint": "theme.css",
   "preview": "preview/index.html",
@@ -24,6 +24,8 @@
   "media_shapes": [
     "auto",
     "rounded",
+    "arch",
+    "circle",
     "none"
   ],
   "brand_tokens": [
@@ -55,5 +57,22 @@
     "--dendrila-media-emphasis",
     "--dendrila-accent-strength",
     "--dendrila-motion-duration"
-  ]
+  ],
+  "decorative_system": {
+    "no_upload_required": true,
+    "motifs": [
+      "none",
+      "geometric",
+      "diagonal"
+    ],
+    "default_motif": "geometric",
+    "image_shapes": [
+      "auto",
+      "rounded",
+      "arch",
+      "circle",
+      "none"
+    ],
+    "implementation": "theme-owned-css-svg"
+  }
 }

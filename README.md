@@ -26,7 +26,11 @@ Structure claire, sections respirantes, illustrations ponctuelles, formes douces
 
 ### `image-centered` — Centré sur les images
 
-Les médias structurent la page : hero photographique immersif, grandes compositions, mosaïques et texte volontairement secondaire. Les deux références visuelles validées servent de bornes : l'une plus immersive, l'autre plus éditoriale, sans transformer ce thème en thème magazine.
+Les médias structurent la page : hero photographique immersif, grandes compositions, mosaïques et texte volontairement secondaire. La direction est basée uniquement sur la référence photographique immersive validée ; la deuxième maquette envoyée a été écartée.
+
+### `quiet-elegant` — Sobre et élégant
+
+Beaucoup d’espace, serif éditoriale, détails fins et images naturelles. Le décor botanique est fourni par le thème et reste optionnel : aucun asset graphique n’est demandé au client.
 
 ### `very-minimal` — Très minimal
 
@@ -64,3 +68,18 @@ Chaque thème contient une preview autonome dans `themes/<id>/preview/`. Elles u
 ```sh
 bash tests/run.sh
 ```
+
+
+## Motifs et formes sans préparation d'assets
+
+Chaque design kit déclare désormais un `decorative_system` dans son manifeste. Les motifs, masques et formes appartiennent au thème : ils sont produits en CSS ou livrés comme SVG locaux.
+
+Le site n'a donc jamais besoin d'importer une feuille, une diagonale, une arche, un blob ou un autre élément décoratif pour reproduire la direction graphique. Dendrila conserve l'image source rectangulaire et applique la forme à l'affichage.
+
+Les attributs déjà exposés par le renderer pilotent ce comportement :
+
+- `data-media-shape` pour les formes d'images ;
+- `data-dendrila-illustration-style` pour choisir la famille de motif ;
+- `data-dendrila-illustration-frequency` pour désactiver ou doser le décor.
+
+Voir `docs/DECORATIVE-SYSTEM.md`.

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 CATALOG="catalog.json"
-THEMES=(simple-illustrated image-centered very-minimal dynamic-graphic)
+THEMES=(simple-illustrated image-centered quiet-elegant very-minimal dynamic-graphic)
 
 python3 -m json.tool "$CATALOG" >/dev/null
 
@@ -57,14 +57,25 @@ test -f "themes/image-centered/preview/sample-media.svg"
 test -f "themes/very-minimal/preview/sample-media.svg"
 test -f "themes/dynamic-graphic/preview/sample-media.svg"
 
-grep -Fq '"version": "0.3.0"' themes/simple-illustrated/theme.json
-grep -Fq '"version": "0.1.0"' themes/image-centered/theme.json
-grep -Fq '"version": "0.1.0"' themes/very-minimal/theme.json
-grep -Fq '"version": "0.1.0"' themes/dynamic-graphic/theme.json
+test -f "themes/simple-illustrated/assets/motifs/organic-line.svg"
+test -f "themes/image-centered/assets/motifs/frame-lines.svg"
+test -f "themes/quiet-elegant/assets/motifs/botanical-line.svg"
+test -f "themes/quiet-elegant/assets/masks/organic-soft.svg"
+test -f "themes/dynamic-graphic/assets/motifs/diagonal-grid.svg"
+test -f "docs/PREVIEW-MEDIA.md"
+test -f "docs/DECORATIVE-SYSTEM.md"
 
-# Signatures that keep the four directions visually distinct.
+grep -Fq '"version": "0.3.1"' themes/simple-illustrated/theme.json
+grep -Fq '"version": "0.2.0"' themes/image-centered/theme.json
+grep -Fq '"version": "0.1.0"' themes/quiet-elegant/theme.json
+grep -Fq '"version": "0.1.1"' themes/very-minimal/theme.json
+grep -Fq '"version": "0.2.0"' themes/dynamic-graphic/theme.json
+
+# Signatures that keep the directions visually distinct.
 grep -Fq 'min-height: clamp(34rem, 67vw, 46rem)' themes/image-centered/theme.css
 grep -Fq 'grid-template-columns: 1.45fr 1fr 1fr' themes/image-centered/theme.css
+grep -Fq 'botanical-line.svg' themes/quiet-elegant/theme.css
+grep -Fq 'grid-template-columns: minmax(0, .95fr) minmax(24rem, 1.05fr)' themes/quiet-elegant/theme.css
 grep -Fq '.d-hero__media {' themes/very-minimal/theme.css
 grep -Fq 'display: none;' themes/very-minimal/theme.css
 grep -Fq 'clip-path: polygon(18% 0, 100% 0, 84% 100%, 0 100%)' themes/dynamic-graphic/theme.css
@@ -135,10 +146,33 @@ for entry in themes:
         raise SystemExit("Theme must support reduced motion")
     if accessibility.get("no_autoplay_media") is not True:
         raise SystemExit("Theme must forbid autoplay media")
+    decorative = manifest.get("decorative_system")
+    if not isinstance(decorative, dict):
+        raise SystemExit("Theme must declare decorative_system")
+    if decorative.get("no_upload_required") is not True:
+        raise SystemExit("Theme decoration must not require client uploads")
+    motifs = decorative.get("motifs")
+    if not isinstance(motifs, list) or not motifs:
+        raise SystemExit("Theme must declare at least one motif mode")
+    shapes = decorative.get("image_shapes")
+    if shapes != manifest.get("media_shapes"):
+        raise SystemExit("Decorative image_shapes must match media_shapes")
+    if decorative.get("implementation") != "theme-owned-css-svg":
+        raise SystemExit("Theme decoration implementation must stay local to the theme")
 
-expected = {"simple-illustrated", "image-centered", "very-minimal", "dynamic-graphic"}
+expected = {"simple-illustrated", "image-centered", "quiet-elegant", "very-minimal", "dynamic-graphic"}
 if not expected.issubset(seen_ids):
     raise SystemExit(f"Missing expected base themes: {sorted(expected - seen_ids)}")
 PY
+
+# Preview photos may be remote fillers, but only from documented Wikimedia thumbnails.
+for theme in image-centered quiet-elegant very-minimal dynamic-graphic; do
+  PREVIEW="themes/$theme/preview/index.html"
+  if grep -Eq 'https://[^"]+' "$PREVIEW"; then
+    ! grep -Eo 'https://[^"]+' "$PREVIEW" | grep -Ev '^https://(thumb|upload)\.wikimedia\.org/' >/dev/null
+  fi
+done
+grep -Fq 'domaine public' docs/PREVIEW-MEDIA.md
+grep -Fq 'CC0 1.0' docs/PREVIEW-MEDIA.md
 
 echo "Dendrila design kit checks passed."

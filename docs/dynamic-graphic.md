@@ -26,3 +26,12 @@ Les diagonales complexes sont réduites, les grilles reviennent à deux puis une
 - multiplier les diagonales jusqu'à concurrencer le contenu ;
 - dépendre d'une image pré-recadrée ;
 - utiliser la couleur secondaire pour du texte long avec contraste insuffisant.
+
+
+## Référence visuelle
+
+Cette direction correspond à la **quatrième maquette** fournie : hero composé, masses colorées, découpes diagonales, accent secondaire et galerie asymétrique. Elle ne reprend pas la deuxième maquette envoyée par erreur.
+
+## Décor sans asset client
+
+Le motif `diagonal-grid` est livré avec le thème. Les découpes du hero et des galeries sont produites en CSS ; aucune image préparée en diagonale n'est nécessaire.
