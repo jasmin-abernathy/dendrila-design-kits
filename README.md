@@ -2,7 +2,7 @@
 
 Bibliothèque de thèmes/fronts réutilisables pour Dendrila CMS.
 
-Ce dépôt contient la **couche de présentation** : structure HTML/CSS, composants visuels, masques média et exemples. Les contrats de styles, tokens sémantiques et contraintes d'accessibilité restent définis dans `jasmin-abernathy/dendrila-cms`.
+Ce dépôt contient la **couche de présentation** : structure HTML/CSS, composants visuels, médias de prévisualisation et exemples. Les contrats de styles, tokens sémantiques et contraintes d'accessibilité restent définis dans `jasmin-abernathy/dendrila-cms`.
 
 ## Principe
 
@@ -16,33 +16,29 @@ Identité du site (couleurs + typo + logo + médias)
 Site final
 ```
 
-Un design kit ne contient ni logique métier, ni nom de client, ni palette imposée. Il fournit un rendu cohérent avec des valeurs neutres de secours, que l'identité du site peut surcharger.
+Un design kit ne contient ni logique métier, ni nom de client, ni palette imposée. Il fournit une direction visuelle cohérente avec des valeurs neutres de secours que l'identité du site peut surcharger.
 
-## Thèmes
+## Thèmes disponibles
 
-### `simple-illustrated`
+### `simple-illustrated` — Simple avec quelques illustrations
 
-Premier thème de référence correspondant au style Dendrila **« Simple avec quelques illustrations »**.
+Structure claire, sections respirantes, illustrations ponctuelles, formes douces et médias non destructifs. Ce thème est issu de la généralisation du travail réalisé pour Materceleste, sans reprendre son identité.
 
-Il s'appuie sur les enseignements de la refonte Materceleste pour généraliser notamment :
+### `image-centered` — Centré sur les images
 
-- hero en deux colonnes ;
-- sections respirantes ;
-- cartes simples ;
-- illustrations/pictogrammes ponctuels ;
-- médias non destructifs avec masques CSS/SVG ;
-- point focal indépendant du fichier image ;
-- fonds doux alternés ;
-- navigation et CTA lisibles ;
-- accessibilité clavier et mouvement réduit.
+Les médias structurent la page : hero photographique immersif, grandes compositions, mosaïques et texte volontairement secondaire. Les deux références visuelles validées servent de bornes : l'une plus immersive, l'autre plus éditoriale, sans transformer ce thème en thème magazine.
 
-L'identité Materceleste elle-même n'est pas incluse : pas de palette terracotta, pas de contenu, pas de médias, pas de typographie ou de logique métier propres au site.
+### `very-minimal` — Très minimal
 
-Voir `themes/simple-illustrated/` et `docs/simple-illustrated.md`.
+Une seule surface, très peu de décor, grandes hiérarchies typographiques, séparateurs fins et composants fonctionnels presque bruts. Les images existent mais ne prennent jamais le pas sur la lecture.
+
+### `dynamic-graphic` — Dynamique et graphique
+
+Composition forte, aplats, diagonales, contrastes, découpes et galerie asymétrique. Le thème doit rester lisible et accessible même lorsqu'il assume davantage de personnalité graphique.
 
 ## Contrat avec Dendrila CMS
 
-Le thème `simple-illustrated` consomme les variables compilées par le preset `design-styles/simple-illustrated/style.json` de Dendrila CMS, notamment :
+Tous les thèmes consomment les variables structurelles compilées par Dendrila CMS :
 
 - `--dendrila-content-max`
 - `--dendrila-section-gap`
@@ -55,9 +51,13 @@ Le thème `simple-illustrated` consomme les variables compilées par le preset `
 - `--dendrila-accent-strength`
 - `--dendrila-motion-duration`
 
-Le thème consomme directement ces variables de style `--dendrila-*`. Il ajoute en parallèle un contrat de marque distinct (`--dendrila-color-*` et `--dendrila-font-*`) pour les couleurs et polices. Ces valeurs doivent être alimentées par la composition du site ou l'adaptateur front.
+Les couleurs et polices restent des variables de marque `--dendrila-color-*` / `--dendrila-font-*`. Les thèmes fournissent uniquement des valeurs de secours pour leurs previews.
 
-Le fichier `catalog.json` est le point d’entrée machine du dépôt. Dendrila CMS peut le lire localement au déploiement pour résoudre un `design_style` vers un design kit installé, sans téléchargement de code à l’exécution.
+`catalog.json` est le point d'entrée machine du dépôt. Dendrila CMS peut le lire localement pour résoudre un `design_style` vers le design kit installé correspondant, sans téléchargement de code à l'exécution.
+
+## Prévisualisations
+
+Chaque thème contient une preview autonome dans `themes/<id>/preview/`. Elles utilisent des contenus et médias génériques : elles servent à comparer la direction graphique, pas à proposer un secteur métier.
 
 ## Validation
 

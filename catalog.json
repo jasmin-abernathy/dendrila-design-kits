@@ -7,6 +7,27 @@
       "version": "0.3.0",
       "path": "themes/simple-illustrated",
       "manifest": "theme.json"
+    },
+    {
+      "id": "image-centered",
+      "design_style_id": "image-centered",
+      "version": "0.1.0",
+      "path": "themes/image-centered",
+      "manifest": "theme.json"
+    },
+    {
+      "id": "very-minimal",
+      "design_style_id": "very-minimal",
+      "version": "0.1.0",
+      "path": "themes/very-minimal",
+      "manifest": "theme.json"
+    },
+    {
+      "id": "dynamic-graphic",
+      "design_style_id": "dynamic-graphic",
+      "version": "0.1.0",
+      "path": "themes/dynamic-graphic",
+      "manifest": "theme.json"
     }
   ]
 }
