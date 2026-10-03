@@ -3,7 +3,7 @@
   "id": "simple-illustrated",
   "design_style_id": "simple-illustrated",
   "label": "Simple avec quelques illustrations",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Thème de base clair et respirant, avec illustrations ponctuelles, cartes sobres et médias façonnés sans modifier les fichiers source.",
   "entrypoint": "theme.css",
   "preview": "preview/index.html",
@@ -43,5 +43,17 @@
     "focus_visible": true,
     "reduced_motion": true,
     "no_autoplay_media": true
-  }
+  },
+  "required_style_tokens": [
+    "--dendrila-content-max",
+    "--dendrila-section-gap",
+    "--dendrila-text-max",
+    "--dendrila-radius",
+    "--dendrila-border-width",
+    "--dendrila-shadow",
+    "--dendrila-heading-scale",
+    "--dendrila-media-emphasis",
+    "--dendrila-accent-strength",
+    "--dendrila-motion-duration"
+  ]
 }
