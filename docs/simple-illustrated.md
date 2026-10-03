@@ -114,3 +114,18 @@ Le thème ne décide pas du contenu : le renderer du CMS produit le HTML sémant
 
 
 Le composant `statistics` fournit aussi des chiffres-clés déclaratifs, sans script ni dépendance. Les attributs `data-dendrila-media-crop` et `data-dendrila-full-bleed` permettent au renderer d'appliquer les derniers tokens structurels du preset sans modifier le contenu.
+
+
+## Ajustements responsive issus du pilote réel
+
+La version 0.3 affine le thème après contrôle sur téléphone et grand écran :
+
+- hero moins envahissant sur petit écran ;
+- galerie compacte en deux colonnes sur mobile, avec ratio horizontal ;
+- rythme vertical réduit sur téléphone ;
+- chiffres-clés visuellement distincts des cartes ;
+- bloc de consentement Dendrila Privacy intégré aux boutons et couleurs du thème ;
+- CTA final plus compact ;
+- largeur des médias du hero bornée sur desktop et mobile.
+
+Ces ajustements restent purement visuels et ne modifient ni le contenu ni les médias source.
