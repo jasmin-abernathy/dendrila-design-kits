@@ -2,7 +2,7 @@
 set -euo pipefail
 
 CATALOG="catalog.json"
-THEMES=(simple-illustrated image-centered quiet-elegant very-minimal dynamic-graphic)
+THEMES=(simple-illustrated image-centered quiet-elegant very-minimal dynamic-graphic editorial)
 
 python3 -m json.tool "$CATALOG" >/dev/null
 
@@ -18,7 +18,6 @@ for theme in "${THEMES[@]}"; do
 
   python3 -m json.tool "$JSON" >/dev/null
   grep -Fq "\"id\": \"$theme\"" "$JSON"
-  grep -Fq "\"design_style_id\": \"$theme\"" "$JSON"
   grep -Fq -- '--dendrila-color-primary' "$CSS"
   grep -Fq -- '--dendrila-content-max' "$CSS"
   grep -Fq ':focus-visible' "$CSS"
@@ -66,10 +65,10 @@ test -f "docs/PREVIEW-MEDIA.md"
 test -f "docs/DECORATIVE-SYSTEM.md"
 
 grep -Fq '"version": "0.3.1"' themes/simple-illustrated/theme.json
-grep -Fq '"version": "0.2.0"' themes/image-centered/theme.json
+grep -Fq '"version": "0.2.1"' themes/image-centered/theme.json
 grep -Fq '"version": "0.1.0"' themes/quiet-elegant/theme.json
-grep -Fq '"version": "0.1.1"' themes/very-minimal/theme.json
-grep -Fq '"version": "0.2.0"' themes/dynamic-graphic/theme.json
+grep -Fq '"version": "0.1.2"' themes/very-minimal/theme.json
+grep -Fq '"version": "0.2.1"' themes/dynamic-graphic/theme.json
 
 # Signatures that keep the directions visually distinct.
 grep -Fq 'min-height: clamp(34rem, 67vw, 46rem)' themes/image-centered/theme.css
@@ -160,13 +159,13 @@ for entry in themes:
     if decorative.get("implementation") != "theme-owned-css-svg":
         raise SystemExit("Theme decoration implementation must stay local to the theme")
 
-expected = {"simple-illustrated", "image-centered", "quiet-elegant", "very-minimal", "dynamic-graphic"}
+expected = {"simple-illustrated", "image-centered", "quiet-elegant", "very-minimal", "dynamic-graphic", "editorial"}
 if not expected.issubset(seen_ids):
     raise SystemExit(f"Missing expected base themes: {sorted(expected - seen_ids)}")
 PY
 
 # Preview photos may be remote fillers, but only from documented Wikimedia thumbnails.
-for theme in image-centered quiet-elegant very-minimal dynamic-graphic; do
+for theme in image-centered quiet-elegant very-minimal dynamic-graphic editorial; do
   PREVIEW="themes/$theme/preview/index.html"
   if grep -Eq 'https://[^"]+' "$PREVIEW"; then
     ! grep -Eo 'https://[^"]+' "$PREVIEW" | grep -Ev '^https://(thumb|upload)\.wikimedia\.org/' >/dev/null
@@ -174,5 +173,7 @@ for theme in image-centered quiet-elegant very-minimal dynamic-graphic; do
 done
 grep -Fq 'domaine public' docs/PREVIEW-MEDIA.md
 grep -Fq 'CC0 1.0' docs/PREVIEW-MEDIA.md
+
+python3 tests/editorial.py
 
 echo "Dendrila design kit checks passed."

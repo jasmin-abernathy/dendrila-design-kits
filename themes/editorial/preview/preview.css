@@ -1,0 +1,4 @@
+dialog { width: min(42rem,calc(100% - 2rem)); max-height: 85dvh; overflow: auto; padding: 2rem; border: 1px solid var(--dendrila-color-border); color: var(--dendrila-color-text); background: var(--dendrila-color-bg); }
+dialog::backdrop { background: rgb(0 0 0 / .4); }
+dialog form { text-align: right; margin-bottom: 1.5rem; }
+dialog > p, dialog > h2 { margin-block: 1rem !important; }
