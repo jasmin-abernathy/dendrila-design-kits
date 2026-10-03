@@ -1,0 +1,33 @@
+name: Validate design kits
+
+on:
+  push:
+    paths:
+      - "themes/**"
+      - "tests/**"
+      - "docs/**"
+      - "README.md"
+      - ".github/workflows/validate.yml"
+  pull_request:
+    paths:
+      - "themes/**"
+      - "tests/**"
+      - "docs/**"
+      - "README.md"
+      - ".github/workflows/validate.yml"
+
+concurrency:
+  group: dendrila-design-kits-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Validate reusable theme
+        run: bash tests/run.sh
