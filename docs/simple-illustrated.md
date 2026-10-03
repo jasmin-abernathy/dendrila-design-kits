@@ -98,3 +98,16 @@ Le thème fournit :
 - comportement responsive sans ordre visuel incohérent.
 
 Les couleurs réelles de marque doivent toujours être contrôlées au minimum pour WCAG AA avant publication.
+
+
+## Composants rendus par l'adaptateur public
+
+La version 0.2 du kit couvre également les blocs génériques nécessaires au premier renderer Dendrila :
+
+- galerie en grille, masonry, filmstrip ou éditorial selon le token du preset ;
+- paires clé/valeur sémantiques en `<dl>` ;
+- placeholders d'embed compatibles avec le consentement natif Dendrila Privacy ;
+- médias de cartes ;
+- attributs de structure pour l'ordre du hero et l'alignement.
+
+Le thème ne décide pas du contenu : le renderer du CMS produit le HTML sémantique commun, tandis que le design kit détermine son apparence.

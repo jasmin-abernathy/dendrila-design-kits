@@ -402,6 +402,155 @@
   color: inherit;
 }
 
+
+/* Renderer structure variants */
+[data-dendrila-theme="simple-illustrated"][data-dendrila-alignment="center"] .d-hero__copy,
+[data-dendrila-theme="simple-illustrated"][data-dendrila-alignment="center"] .d-section__heading {
+  text-align: center;
+  margin-inline: auto;
+}
+
+[data-dendrila-theme="simple-illustrated"][data-dendrila-alignment="center"] .d-lead,
+[data-dendrila-theme="simple-illustrated"][data-dendrila-alignment="center"] .d-actions {
+  margin-inline: auto;
+  justify-content: center;
+}
+
+[data-dendrila-theme="simple-illustrated"][data-dendrila-hero="media_first"] .d-hero__media {
+  order: -1;
+}
+
+[data-dendrila-theme="simple-illustrated"][data-dendrila-hero="minimal"] .d-hero__grid,
+[data-dendrila-theme="simple-illustrated"][data-dendrila-hero="text_first"] .d-hero__grid {
+  grid-template-columns: 1fr;
+}
+
+.d-section__heading {
+  max-width: var(--dendrila-text-max, 54rem);
+  margin-bottom: 2rem;
+}
+
+.d-rich-text {
+  white-space: pre-line;
+}
+
+/* Galleries */
+.d-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.d-gallery__item {
+  break-inside: avoid;
+  margin: 0;
+}
+
+.d-gallery__item .d-media {
+  min-height: 12rem;
+}
+
+.d-caption {
+  margin-top: .55rem;
+  color: var(--dendrila-color-muted);
+  font-size: .9rem;
+}
+
+[data-dendrila-theme="simple-illustrated"][data-dendrila-gallery="masonry"] .d-gallery {
+  display: block;
+  columns: 3 15rem;
+  column-gap: 1rem;
+}
+
+[data-dendrila-theme="simple-illustrated"][data-dendrila-gallery="masonry"] .d-gallery__item {
+  margin-bottom: 1rem;
+}
+
+[data-dendrila-theme="simple-illustrated"][data-dendrila-gallery="filmstrip"] .d-gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: .5rem;
+}
+
+[data-dendrila-theme="simple-illustrated"][data-dendrila-gallery="filmstrip"] .d-gallery__item {
+  flex: 0 0 min(78vw, 30rem);
+  scroll-snap-align: start;
+}
+
+[data-dendrila-theme="simple-illustrated"][data-dendrila-gallery="editorial"] .d-gallery {
+  grid-template-columns: 1fr 1fr;
+}
+
+[data-dendrila-theme="simple-illustrated"][data-dendrila-gallery="editorial"] .d-gallery__item:first-child {
+  grid-column: 1 / -1;
+}
+
+/* Key/value blocks */
+.d-key-values {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+  margin: 0;
+}
+
+.d-key-values__item {
+  background: var(--dendrila-color-surface);
+  border: var(--dendrila-border-width, 1px) solid var(--dendrila-color-border);
+  border-radius: var(--dendrila-radius, .8rem);
+  padding: 1rem;
+}
+
+.d-key-values dt {
+  color: var(--dendrila-color-muted);
+  font-size: .82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.d-key-values dd {
+  margin: .35rem 0 0;
+  font-weight: 700;
+}
+
+/* External embeds remain placeholders until native consent allows them. */
+.d-embed {
+  overflow: hidden;
+  background: var(--dendrila-color-surface);
+  border: var(--dendrila-border-width, 1px) solid var(--dendrila-color-border);
+  border-radius: var(--dendrila-radius, .8rem);
+  padding: 1rem;
+}
+
+.d-embed .dendrila-privacy-placeholder {
+  min-height: 12rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.d-embed iframe {
+  width: 100%;
+  min-height: 22rem;
+  border: 0;
+  border-radius: calc(var(--dendrila-radius, .8rem) * .75);
+}
+
+/* Card media */
+.d-card__media {
+  margin: -1.35rem -1.35rem 1.1rem;
+  overflow: hidden;
+  border-radius: var(--dendrila-radius, .8rem) var(--dendrila-radius, .8rem) 0 0;
+}
+
+.d-card__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
 @media (max-width: 52rem) {
   .d-nav {
     gap: .75rem;
@@ -412,8 +561,13 @@
     grid-template-columns: 1fr;
   }
 
-  .d-card-grid {
+  .d-card-grid,
+  .d-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  [data-dendrila-theme="simple-illustrated"][data-dendrila-gallery="masonry"] .d-gallery {
+    columns: 2 14rem;
   }
 
   .d-footer__grid {
@@ -439,8 +593,14 @@
   }
 
   .d-card-grid,
+  .d-gallery,
+  .d-key-values,
   .d-footer__grid {
     grid-template-columns: 1fr;
+  }
+
+  [data-dendrila-theme="simple-illustrated"][data-dendrila-gallery="masonry"] .d-gallery {
+    columns: 1;
   }
 
   .d-cta-band__inner {
