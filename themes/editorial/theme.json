@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "editorial",
+  "design_style_id": "editorial",
+  "label": "Éditorial / magazine",
+  "version": "0.1.0",
+  "description": "Une de média à densité modérée : sujet principal, deux sujets secondaires, rubriques et galerie légendée.",
+  "entrypoint": "theme.css",
+  "preview": "preview/index.html",
+  "components": [
+    "header",
+    "hero",
+    "section",
+    "card-grid",
+    "front-page",
+    "media",
+    "gallery",
+    "statistics",
+    "key-values",
+    "faq",
+    "embed",
+    "cta-band",
+    "footer"
+  ],
+  "media_shapes": [
+    "auto",
+    "rounded",
+    "circle",
+    "none"
+  ],
+  "brand_tokens": [
+    "--dendrila-color-bg",
+    "--dendrila-color-surface",
+    "--dendrila-color-text",
+    "--dendrila-color-muted",
+    "--dendrila-color-primary",
+    "--dendrila-color-primary-strong",
+    "--dendrila-color-accent-soft",
+    "--dendrila-color-border",
+    "--dendrila-font-heading",
+    "--dendrila-font-body"
+  ],
+  "accessibility": {
+    "focus_visible": true,
+    "reduced_motion": true,
+    "no_autoplay_media": true
+  },
+  "required_style_tokens": [
+    "--dendrila-content-max",
+    "--dendrila-section-gap",
+    "--dendrila-text-max",
+    "--dendrila-radius",
+    "--dendrila-border-width",
+    "--dendrila-shadow",
+    "--dendrila-heading-scale",
+    "--dendrila-media-emphasis",
+    "--dendrila-accent-strength",
+    "--dendrila-motion-duration"
+  ],
+  "decorative_system": {
+    "no_upload_required": true,
+    "motifs": [
+      "none",
+      "hairline"
+    ],
+    "default_motif": "hairline",
+    "image_shapes": [
+      "auto",
+      "rounded",
+      "circle",
+      "none"
+    ],
+    "implementation": "theme-owned-css-svg"
+  }
+}

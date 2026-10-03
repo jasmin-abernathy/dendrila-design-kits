@@ -30,6 +30,8 @@ Les thèmes utilisent ces attributs plutôt que de modifier les fichiers source.
 - **Très minimal** : cercle/arrondi et simple trait CSS ; aucun motif bitmap.
 - **Dynamique et graphique** : découpes géométriques, diagonales et motif géométrique intégré.
 
+- **Éditorial / magazine** : filets typographiques, cadres rectangulaires, aucun motif figuratif.
+
 ## Règle de conception
 
 Une image envoyée dans Dendrila reste une image rectangulaire exploitable partout. Le design kit décide uniquement de sa présentation. Changer de thème ne doit jamais nécessiter de recadrer ou de réexporter le média.

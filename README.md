@@ -40,6 +40,10 @@ Une seule surface, très peu de décor, grandes hiérarchies typographiques, sé
 
 Composition forte, aplats, diagonales, contrastes, découpes et galerie asymétrique. Le thème doit rester lisible et accessible même lorsqu'il assume davantage de personnalité graphique.
 
+### `editorial` — Éditorial / magazine
+
+Une de média à densité modérée : un sujet principal, deux sujets secondaires, trois entrées « À explorer », galerie légendée, FAQ et contenu externe soumis au consentement. La preview ne contient pas de section chiffres-clés. Voir `docs/editorial.md`.
+
 ## Contrat avec Dendrila CMS
 
 Tous les thèmes consomment les variables structurelles compilées par Dendrila CMS :
@@ -83,3 +87,18 @@ Les attributs déjà exposés par le renderer pilotent ce comportement :
 - `data-dendrila-illustration-frequency` pour désactiver ou doser le décor.
 
 Voir `docs/DECORATIVE-SYSTEM.md`.
+
+## Correspondance des identifiants
+
+Les noms des dossiers des thèmes sont stables. `design_style_id` référence le preset **réel** du CMS :
+
+| Thème | Preset CMS |
+| --- | --- |
+| simple-illustrated | simple-illustrated |
+| image-centered | image-forward |
+| quiet-elegant | quiet-elegant |
+| very-minimal | ultra-minimal |
+| dynamic-graphic | graphic-rhythm |
+| editorial | editorial |
+
+Les corrections de correspondance ne modifient ni les palettes ni les compositions des thèmes déjà validés.

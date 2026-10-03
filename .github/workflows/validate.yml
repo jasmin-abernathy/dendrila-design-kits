@@ -2,18 +2,19 @@ name: Validate design kits
 
 on:
   push:
+    branches: [main]
     paths:
       - "themes/**"
       - "tests/**"
-      - "docs/**"
-      - "README.md"
+      - "catalog.json"
+      - "schemas/**"
       - ".github/workflows/validate.yml"
   pull_request:
     paths:
       - "themes/**"
       - "tests/**"
-      - "docs/**"
-      - "README.md"
+      - "catalog.json"
+      - "schemas/**"
       - ".github/workflows/validate.yml"
 
 concurrency:
