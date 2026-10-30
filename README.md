@@ -40,6 +40,10 @@ Une seule surface, très peu de décor, grandes hiérarchies typographiques, sé
 
 Composition forte, aplats, diagonales, contrastes, découpes et galerie asymétrique. Le thème doit rester lisible et accessible même lorsqu'il assume davantage de personnalité graphique.
 
+### `editorial` — Éditorial
+
+Direction tirée des **principes de composition de l’advarP** (sans reprendre son nom, son logo, ses contenus ni ses couleurs) : titres hiérarchisés, filets de rubrique, mise en avant d’un article et deux colonnes secondaires, colonne de lecture étroite pour les analyses longues. Sur mobile, les rubriques deviennent des articles empilés et lisibles. Le thème demeure utilisable par n’importe quel média, association ou site riche en textes.
+
 ## Contrat avec Dendrila CMS
 
 Tous les thèmes consomment les variables structurelles compilées par Dendrila CMS :
