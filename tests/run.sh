@@ -2,7 +2,7 @@
 set -euo pipefail
 
 CATALOG="catalog.json"
-THEMES=(simple-illustrated image-centered quiet-elegant very-minimal dynamic-graphic)
+THEMES=(simple-illustrated image-centered quiet-elegant very-minimal dynamic-graphic editorial)
 
 python3 -m json.tool "$CATALOG" >/dev/null
 
@@ -70,6 +70,7 @@ grep -Fq '"version": "0.2.0"' themes/image-centered/theme.json
 grep -Fq '"version": "0.1.0"' themes/quiet-elegant/theme.json
 grep -Fq '"version": "0.1.1"' themes/very-minimal/theme.json
 grep -Fq '"version": "0.2.0"' themes/dynamic-graphic/theme.json
+grep -Fq '"version": "0.1.0"' themes/editorial/theme.json
 
 # Signatures that keep the directions visually distinct.
 grep -Fq 'min-height: clamp(34rem, 67vw, 46rem)' themes/image-centered/theme.css
@@ -80,6 +81,10 @@ grep -Fq '.d-hero__media {' themes/very-minimal/theme.css
 grep -Fq 'display: none;' themes/very-minimal/theme.css
 grep -Fq 'clip-path: polygon(18% 0, 100% 0, 84% 100%, 0 100%)' themes/dynamic-graphic/theme.css
 grep -Fq -- '--dendrila-color-secondary' themes/dynamic-graphic/theme.css
+
+# The editorial theme uses typographic hierarchy, readable rules and a three-column desktop grid.
+grep -Fq 'grid-template-columns:minmax(0,1.7fr) repeat(2,minmax(0,1fr))' themes/editorial/theme.css
+grep -Fq 'max-width:var(--dendrila-text-max' themes/editorial/theme.css
 
 python3 - "$CATALOG" <<'PY'
 from pathlib import Path
@@ -160,7 +165,7 @@ for entry in themes:
     if decorative.get("implementation") != "theme-owned-css-svg":
         raise SystemExit("Theme decoration implementation must stay local to the theme")
 
-expected = {"simple-illustrated", "image-centered", "quiet-elegant", "very-minimal", "dynamic-graphic"}
+expected = {"simple-illustrated", "image-centered", "quiet-elegant", "very-minimal", "dynamic-graphic", "editorial"}
 if not expected.issubset(seen_ids):
     raise SystemExit(f"Missing expected base themes: {sorted(expected - seen_ids)}")
 PY
