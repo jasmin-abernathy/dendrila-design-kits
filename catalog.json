@@ -35,6 +35,13 @@
       "version": "0.1.0",
       "path": "themes/quiet-elegant",
       "manifest": "theme.json"
+    },
+    {
+      "id": "editorial",
+      "design_style_id": "editorial",
+      "version": "0.1.0",
+      "path": "themes/editorial",
+      "manifest": "theme.json"
     }
   ]
 }
