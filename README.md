@@ -44,6 +44,10 @@ Composition forte, aplats, diagonales, contrastes, découpes et galerie asymétr
 
 Direction tirée des **principes de composition de l’advarP** (sans reprendre son nom, son logo, ses contenus ni ses couleurs) : titres hiérarchisés, filets de rubrique, mise en avant d’un article et deux colonnes secondaires, colonne de lecture étroite pour les analyses longues. Sur mobile, les rubriques deviennent des articles empilés et lisibles. Le thème demeure utilisable par n’importe quel média, association ou site riche en textes.
 
+### `editorial` — Éditorial
+
+Hiérarchie de presse, filets, une et colonnes secondaires inspirées de la grammaire de l’advarP, sans reprendre sa marque. Cette version consolide le thème de la PR #9 et les corrections de correspondance du catalogue de la PR #8.
+
 ## Contrat avec Dendrila CMS
 
 Tous les thèmes consomment les variables structurelles compilées par Dendrila CMS :
@@ -87,3 +91,6 @@ Les attributs déjà exposés par le renderer pilotent ce comportement :
 - `data-dendrila-illustration-frequency` pour désactiver ou doser le décor.
 
 Voir `docs/DECORATIVE-SYSTEM.md`.
+
+
+Les identifiants de thème et de style ne sont pas toujours identiques : `image-forward` → `image-centered`, `ultra-minimal` → `very-minimal`, `graphic-rhythm` → `dynamic-graphic`. Les trois autres correspondances sont directes. Les tests vérifient cette table explicitement.

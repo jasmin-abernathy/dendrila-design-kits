@@ -10,21 +10,21 @@
     },
     {
       "id": "image-centered",
-      "design_style_id": "image-centered",
+      "design_style_id": "image-forward",
       "version": "0.2.0",
       "path": "themes/image-centered",
       "manifest": "theme.json"
     },
     {
       "id": "very-minimal",
-      "design_style_id": "very-minimal",
+      "design_style_id": "ultra-minimal",
       "version": "0.1.1",
       "path": "themes/very-minimal",
       "manifest": "theme.json"
     },
     {
       "id": "dynamic-graphic",
-      "design_style_id": "dynamic-graphic",
+      "design_style_id": "graphic-rhythm",
       "version": "0.2.0",
       "path": "themes/dynamic-graphic",
       "manifest": "theme.json"

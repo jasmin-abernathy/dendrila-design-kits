@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "dynamic-graphic",
-  "design_style_id": "dynamic-graphic",
+  "design_style_id": "graphic-rhythm",
   "label": "Dynamique et graphique",
   "version": "0.2.0",
   "description": "Thème expressif fondé sur de grandes compositions, des aplats contrastés, des découpes géométriques et une forte hiérarchie éditoriale.",

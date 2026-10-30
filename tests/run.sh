@@ -18,7 +18,6 @@ for theme in "${THEMES[@]}"; do
 
   python3 -m json.tool "$JSON" >/dev/null
   grep -Fq "\"id\": \"$theme\"" "$JSON"
-  grep -Fq "\"design_style_id\": \"$theme\"" "$JSON"
   grep -Fq -- '--dendrila-color-primary' "$CSS"
   grep -Fq -- '--dendrila-content-max' "$CSS"
   grep -Fq ':focus-visible' "$CSS"
@@ -101,6 +100,7 @@ themes = catalog.get("themes")
 if not isinstance(themes, list) or len(themes) < 1:
     raise SystemExit("Catalog must contain themes")
 
+expected_styles = {"simple-illustrated":"simple-illustrated", "image-centered":"image-forward", "quiet-elegant":"quiet-elegant", "very-minimal":"ultra-minimal", "dynamic-graphic":"graphic-rhythm", "editorial":"editorial"}
 seen_ids = set()
 seen_styles = set()
 for entry in themes:
@@ -116,6 +116,8 @@ for entry in themes:
     if not re.fullmatch(r"[a-z][a-z0-9-]*", entry["id"]):
         raise SystemExit("Unsafe theme id")
 
+    if entry["design_style_id"] != expected_styles[entry["id"]]:
+        raise SystemExit("Style mapping does not match the CMS preset")
     base = root / entry["path"]
     manifest_path = base / entry["manifest"]
     if not manifest_path.is_file():
@@ -181,3 +183,4 @@ grep -Fq 'domaine public' docs/PREVIEW-MEDIA.md
 grep -Fq 'CC0 1.0' docs/PREVIEW-MEDIA.md
 
 echo "Dendrila design kit checks passed."
+
