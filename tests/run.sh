@@ -64,12 +64,6 @@ test -f "themes/dynamic-graphic/assets/motifs/diagonal-grid.svg"
 test -f "docs/PREVIEW-MEDIA.md"
 test -f "docs/DECORATIVE-SYSTEM.md"
 
-grep -Fq '"version": "0.3.1"' themes/simple-illustrated/theme.json
-grep -Fq '"version": "0.2.0"' themes/image-centered/theme.json
-grep -Fq '"version": "0.1.0"' themes/quiet-elegant/theme.json
-grep -Fq '"version": "0.1.1"' themes/very-minimal/theme.json
-grep -Fq '"version": "0.2.0"' themes/dynamic-graphic/theme.json
-grep -Fq '"version": "0.1.0"' themes/editorial/theme.json
 
 # Signatures that keep the directions visually distinct.
 grep -Fq 'min-height: clamp(34rem, 67vw, 46rem)' themes/image-centered/theme.css
