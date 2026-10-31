@@ -70,6 +70,8 @@ for style in STYLES:
     page.feed(html)
     assert page.details==1 and page.summaries==1 and page.menu_panels==1,style+' missing accessible mobile menu'
     assert page.navs==2 and page.focusable_links>=5,style+' navigation duplicate for display breakpoint'
+    assert 'd-home-composition' in html and html.count('d-home-tile')>=2,style+' visual flow not composed'
+    assert 'V4 theme-owned homepage composition' in css,style+' missing non-blog section layouts'
     assert has_balanced_css(css),style+' invalid CSS braces or string boundaries'
     for required in (
         '/* V3 responsive contract',
