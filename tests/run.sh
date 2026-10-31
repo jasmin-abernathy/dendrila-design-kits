@@ -48,6 +48,12 @@ if depth != 0:
 PY
 done
 
+# Only locally bundled WebP photographs with documented provenance.
+for photo in simple-illustrated/community simple-illustrated/nature simple-illustrated/flowers quiet-elegant/forest quiet-elegant/architecture image-centered/mountains image-centered/architecture image-centered/forest image-centered/nature image-centered/flowers dynamic-graphic/workshop editorial/workshop; do
+  test -f "themes/${photo%/*}/assets/${photo#*/}.webp"
+  file -b --mime-type "themes/${photo%/*}/assets/${photo#*/}.webp" | grep -Fxq 'image/webp'
+done
+test -f "docs/PREVIEW-MEDIA.md"
 test -f "themes/simple-illustrated/assets/masks/organic-soft.svg"
 test -f "themes/simple-illustrated/assets/masks/organic-tall.svg"
 test -f "themes/simple-illustrated/assets/masks/arch.svg"

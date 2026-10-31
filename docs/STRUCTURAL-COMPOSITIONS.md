@@ -11,7 +11,7 @@ Il ne suffit pas de changer la couleur du bandeau. Chaque kit définit une organ
 | Dynamique et graphique | Affiche événementielle, titre géant, scène géométrique et programme asymétrique | Géométrie CSS générée par le kit |
 | Éditorial | Masthead de journal, une typographique, hiérarchie sur deux niveaux, lecture longue en colonne étroite | Aucune marque ou photo politique imposée |
 
-Les illustrations SVG originales sont : assets/illustration-service.svg, assets/illustration-process.svg et assets/illustration-garden.svg, toutes livrées avec le kit simple illustré.
+Les illustrations SVG originales sont : assets/community.webp, assets/flowers.webp et assets/nature.webp, toutes livrées avec le kit simple illustré.
 
 Les photos de substitution sont les fichiers WebP locaux déjà livrés avec Dendrila. Les décorations sont affichées uniquement tant que l'utilisateur n'a pas choisi de vraie image principale. Elles sont masquées aux lecteurs d'écran et ne créent pas de faux objets médias dans la base.
 

@@ -13,4 +13,4 @@ Les thèmes ne créent ni actualités, ni articles, ni catégories. Le site inst
 
 Le thème règle la présentation, pas le métier ni les modules. Toute page et tout bloc restent disponibles. Les exemples n’imposent pas leur structure aux contenus existants. Les couleurs et polices de marque restent personnalisables.
 
-Le CSS visuel appartient au dépôt des thèmes. Le CSS d’intégration du CMS se limite aux adaptations communes du rendu, afin d’éviter deux directions graphiques concurrentes. Les captures du CMS utilisent des photos CC0 locales ; les aperçus statiques de ce dépôt utilisent une illustration locale.
+Le CSS visuel appartient au dépôt des thèmes. Le CSS d’intégration du CMS se limite aux adaptations communes du rendu, afin d’éviter deux directions graphiques concurrentes. Les captures du CMS utilisent des photos CC0 locales ; les aperçus statiques utilisent des photographies libres stockées localement avec leurs licences documentées.
