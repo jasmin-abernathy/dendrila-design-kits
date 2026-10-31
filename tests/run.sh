@@ -5,6 +5,7 @@ CATALOG="catalog.json"
 THEMES=(simple-illustrated image-centered quiet-elegant very-minimal dynamic-graphic editorial)
 
 python3 -m json.tool "$CATALOG" >/dev/null
+python3 tests/responsive-check.py
 
 for theme in "${THEMES[@]}"; do
   BASE="themes/$theme"
