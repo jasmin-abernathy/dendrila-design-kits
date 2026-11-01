@@ -96,6 +96,42 @@ for style in STYLES:
     assert 'width:min(27rem,calc(100vw - 2rem))' in css,style+' panel viewport fit'
     assert not re.search(r'@media\s*\([^)]*min-width[^)]*\).*?\.d-mobile-menu\s*\{display:block',css,re.S),style
     print('RESPONSIVE_OK',style)
+
+# WCAG AA normal-size text and all three burger strokes must be legible.
+def luminance(color):
+    v=[int(color[i:i+2],16)/255 for i in (1,3,5)]
+    v=[t/12.92 if t<=.04045 else ((t+.055)/1.055)**2.4 for t in v]
+    return .2126*v[0]+.7152*v[1]+.0722*v[2]
+
+def contrast(a,b):
+    hi,lo=sorted((luminance(a),luminance(b)),reverse=True)
+    return (hi+.05)/(lo+.05)
+
+menu_palettes={
+ 'simple-illustrated':('#324a3b','#ffffff','#ffffff','#25302a','#e7eee9'),
+ 'quiet-elegant':('#303624','#ffffff','#fffdf8','#1f211d','#efe9df'),
+ 'image-centered':('#e5eee4','#101616','#172020','#f4f5ef','#384b3f'),
+ 'very-minimal':('#101418','#ffffff','#ffffff','#101418','#edf2ef'),
+ 'dynamic-graphic':('#3320a0','#ffffff','#fff9e8','#211e57','#eee3c3'),
+ 'editorial':('#1d2627','#fffdf8','#fffcf5','#1d2627','#e9ebe6')
+}
+for style,(button_bg,button_fg,panel_bg,panel_fg,hover_bg) in menu_palettes.items():
+    css=(ROOT/'themes'/style/'theme.css').read_text()
+    assert 'V6 solid high-contrast native mobile navigation' in css,style
+    assert f'background-color:{button_bg}!important' in css,style+' burger background not enforced'
+    assert f'color:{button_fg}!important' in css,style+' burger label color not enforced'
+    assert f'background-color:{panel_bg}!important' in css,style+' menu panel not opaque'
+    assert f'background-color:{hover_bg}!important' in css,style+' hover contrast not fixed'
+    for caption,a,b in (
+      ('burger label and strokes',button_bg,button_fg),
+      ('open menu links',panel_bg,panel_fg),
+      ('hover menu links',hover_bg,panel_fg),
+    ):
+        score=contrast(a,b)
+        assert score>=4.5,style+' '+caption+' contrast too low: '+str(score)
+    print('BURGER_CONTRAST_OK',style,round(contrast(button_bg,button_fg),1),
+        round(contrast(panel_bg,panel_fg),1),round(contrast(hover_bg,panel_fg),1))
+
 photo_css=(ROOT/'themes/image-centered/theme.css').read_text()
 for n in ('architecture','nature','forest'):
     assert 'url("assets/'+n+'.webp")!important' in photo_css, 'Missing photo card '+n
