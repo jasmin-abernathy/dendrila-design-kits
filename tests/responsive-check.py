@@ -71,6 +71,12 @@ for style in STYLES:
     assert page.details==1 and page.summaries==1 and page.menu_panels==1,style+' missing accessible mobile menu'
     assert page.navs==2 and page.focusable_links>=5,style+' navigation duplicate for display breakpoint'
     assert 'd-home-composition' in html and html.count('d-home-tile')>=2,style+' visual flow not composed'
+    assert 'class="d-footer__links"' in html,style+' static footer is not a link grid'
+    assert 'V5 shared footer' in css,style+' footer grid rules missing'
+    assert 'grid-template-columns:repeat(3,minmax(0,1fr))' in css,style+' footer must have three columns'
+    assert 'grid-template-columns:repeat(2,minmax(0,1fr))' in css,style+' tiny phone fallback missing'
+    assert '.d-footer__links a:focus-visible' in css,style+' keyboard focus missing'
+
     assert 'V4 theme-owned homepage composition' in css,style+' missing non-blog section layouts'
     assert has_balanced_css(css),style+' invalid CSS braces or string boundaries'
     for required in (
@@ -90,4 +96,11 @@ for style in STYLES:
     assert 'width:min(27rem,calc(100vw - 2rem))' in css,style+' panel viewport fit'
     assert not re.search(r'@media\s*\([^)]*min-width[^)]*\).*?\.d-mobile-menu\s*\{display:block',css,re.S),style
     print('RESPONSIVE_OK',style)
+photo_css=(ROOT/'themes/image-centered/theme.css').read_text()
+for n in ('architecture','nature','forest'):
+    assert 'url("assets/'+n+'.webp")!important' in photo_css, 'Missing photo card '+n
+    assert (ROOT/'themes/image-centered/assets'/(n+'.webp')).is_file(), 'Missing local CC0 photo '+n
+assert 'rgba(7,18,13,.83)' in photo_css, 'Dark overlay for text contrast is missing'
+assert 'color:#fff!important' in photo_css, 'White text over dark images is missing'
+print('Photo cards: 3 licensed local backgrounds, accessible contrast overlay, responsive size OK')
 print('Six responsive kits: menu, keyboard/focus, mobile grids, CSS balance, fallback and reduced motion OK')

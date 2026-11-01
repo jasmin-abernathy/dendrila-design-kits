@@ -49,3 +49,9 @@ Les compositions visuelles avec images chargent désormais **des photographies r
 - Fleurs : simple-illustrated/assets/flowers.webp et image-centered/assets/flowers.webp — Renukarenu1861, **CC0 1.0** — https://commons.wikimedia.org/wiki/File:Flowers,_images.jpg
 
 Une page de départ Dendrila conserve une galerie éditable vide à l'installation : ces images n'y sont pas importées comme si elles appartenaient à son propriétaire. Les aperçus de l'installateur peuvent présenter des photographies de démonstration. Le propriétaire peut ensuite choisir ses propres images. Les crédits restent documentés par respect envers les auteurs, même en l'absence d'obligation contractuelle pour le CC0/domaine public.
+
+## Fond des trois cartes du thème « Centré sur les images »
+
+Sur la page d'accueil, la section « Projets / Actualités / À propos » associe trois fonds photographiques déjà présents dans le thème : architecture.webp, nature.webp, forest.webp. Les sources et statuts juridiques de ces fichiers figurent ci-dessus. Le CSS applique un dégradé sombre, renforcé à la base de chaque carte, avec texte blanc et contour visible au clavier.
+
+Les fonds sont décoratifs et spécifiques à la présentation du thème : ils ne deviennent pas des contenus clients, ne demandent pas d'appel à un service extérieur et restent remplaçables dans la conception du kit. En dessous de 25 rem, les liens du footer passent de trois à deux colonnes pour conserver une largeur de lecture suffisante.
