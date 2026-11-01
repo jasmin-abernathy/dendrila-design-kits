@@ -85,6 +85,12 @@ for style in STYLES:
     assert 'V8 concluding CTA across all six starter homepages' in css,style+' homepage final CTA missing'
     assert '.d-home-composition>.d-home-tile--cta' in css,style+' CTA not spanning full composition'
     assert 'min-height:48px' in css,style+' CTA hit target too small'
+    assert 'V11 CTA full-width section background' in css,style+' full-width CTA missing'
+    assert 'width:100vw!important' in css,style+' CTA not full bleed'
+    assert 'margin-left:calc(50% - 50vw)!important' in css,style+' CTA not horizontally centered'
+    assert 'background:transparent!important' in css,style+' inner CTA should not be a colored island'
+    assert 'html.d-reading-readable body[data-dendrila-theme=' in css,style+' accessible CTA mode missing'
+
 
 
     assert 'V4 theme-owned homepage composition' in css,style+' missing non-blog section layouts'
