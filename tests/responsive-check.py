@@ -76,6 +76,10 @@ for style in STYLES:
     assert 'grid-template-columns:repeat(3,minmax(0,1fr))' in css,style+' footer must have three columns'
     assert 'grid-template-columns:repeat(2,minmax(0,1fr))' in css,style+' tiny phone fallback missing'
     assert '.d-footer__links a:focus-visible' in css,style+' keyboard focus missing'
+    assert 'V8 concluding CTA across all six starter homepages' in css,style+' homepage final CTA missing'
+    assert '.d-home-composition>.d-home-tile--cta' in css,style+' CTA not spanning full composition'
+    assert 'min-height:48px' in css,style+' CTA hit target too small'
+
 
     assert 'V4 theme-owned homepage composition' in css,style+' missing non-blog section layouts'
     assert has_balanced_css(css),style+' invalid CSS braces or string boundaries'
@@ -136,6 +140,9 @@ photo_css=(ROOT/'themes/image-centered/theme.css').read_text()
 for n in ('architecture','nature','forest'):
     assert 'url("assets/'+n+'.webp")!important' in photo_css, 'Missing photo card '+n
     assert (ROOT/'themes/image-centered/assets'/(n+'.webp')).is_file(), 'Missing local CC0 photo '+n
+for name in ('mountains','architecture','forest','flowers','nature'):
+    assert 'url("assets/'+name+'.webp")!important' in photo_css, 'Missing interior photo background '+name
+    assert (ROOT/'themes/image-centered/assets'/(name+'.webp')).is_file()
 assert 'rgba(7,18,13,.83)' in photo_css, 'Dark overlay for text contrast is missing'
 assert 'color:#fff!important' in photo_css, 'White text over dark images is missing'
 print('Photo cards: 3 licensed local backgrounds, accessible contrast overlay, responsive size OK')
