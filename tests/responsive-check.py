@@ -73,6 +73,12 @@ for style in STYLES:
     assert 'd-home-composition' in html and html.count('d-home-tile')>=2,style+' visual flow not composed'
     assert 'class="d-footer__links"' in html,style+' static footer is not a link grid'
     assert 'V5 shared footer' in css,style+' footer grid rules missing'
+    assert 'V13 first-class contact form' in css,style+' contact page has no form styles'
+    assert '.d-contact-form__grid' in css,style+' contact form grid absent'
+    assert '.d-contact-form__submit[disabled]' in css,style+' preview disabled button not styled'
+    assert 'grid-template-columns:minmax(0,1fr)' in css,style+' one-column mobile form missing'
+    assert 'min-height:48px' in css,style+' contact controls too small'
+
     assert 'V10 layering fix: menu must paint above hero and every content card' in css,style+' menu stacking fix missing'
     assert 'z-index:5000!important' in css,style+' header does not outrank hero'
     assert 'position:relative!important' in css,style+' header may be static'
