@@ -810,7 +810,7 @@ body[data-dendrila-theme="dynamic-graphic"] .d-footer__grid > div {
 }
 body[data-dendrila-theme="dynamic-graphic"] .d-footer__links {
     display:grid!important;
-    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
     gap:.65rem clamp(.75rem,3.5vw,3.5rem)!important;
     align-items:start!important;
     width:100%!important;
@@ -942,5 +942,13 @@ body[data-dendrila-theme="dynamic-graphic"] .d-home-composition>.d-home-tile--ct
  }
  body[data-dendrila-theme="dynamic-graphic"] .d-home-composition>.d-home-tile--cta .d-cta-band__inner a{
     width:100%;
+ }
+}
+
+/* Four legal/contact links: 4 desktop / 2 tablet-phone without orphan rows. */
+@media(max-width:52rem){
+ body[data-dendrila-theme="dynamic-graphic"] .d-footer__links{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:.75rem 1.25rem!important;
  }
 }

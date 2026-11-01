@@ -73,8 +73,8 @@ for style in STYLES:
     assert 'd-home-composition' in html and html.count('d-home-tile')>=2,style+' visual flow not composed'
     assert 'class="d-footer__links"' in html,style+' static footer is not a link grid'
     assert 'V5 shared footer' in css,style+' footer grid rules missing'
-    assert 'grid-template-columns:repeat(3,minmax(0,1fr))' in css,style+' footer must have three columns'
-    assert 'grid-template-columns:repeat(2,minmax(0,1fr))' in css,style+' tiny phone fallback missing'
+    assert 'grid-template-columns:repeat(4,minmax(0,1fr))' in css,style+' footer must have four desktop columns'
+    assert '@media(max-width:52rem)' in css and 'grid-template-columns:repeat(2,minmax(0,1fr))' in css,style+' mobile two-column footer missing'
     assert '.d-footer__links a:focus-visible' in css,style+' keyboard focus missing'
     assert 'V8 concluding CTA across all six starter homepages' in css,style+' homepage final CTA missing'
     assert '.d-home-composition>.d-home-tile--cta' in css,style+' CTA not spanning full composition'
@@ -136,6 +136,18 @@ for style,(button_bg,button_fg,panel_bg,panel_fg,hover_bg) in menu_palettes.item
     print('BURGER_CONTRAST_OK',style,round(contrast(button_bg,button_fg),1),
         round(contrast(panel_bg,panel_fg),1),round(contrast(hover_bg,panel_fg),1))
 
+simple=(ROOT/'themes/simple-illustrated/theme.css').read_text()
+for rule in (
+ 'V9 consistent interior rhythm across all Simple illustré pages',
+ '--d-simple-inset:clamp(1.5rem,3.5vw,3rem)',
+ '--d-simple-card-inset:clamp(1.35rem,3vw,2.25rem)',
+ 'padding:var(--d-simple-inset)',
+ 'padding:var(--d-simple-card-inset)',
+ 'padding-bottom:clamp(10rem,34vw,15rem)',
+ 'width:calc(100% - 1.5rem)',
+):
+    assert rule in simple,'Illustrated responsive spacing missing: '+rule
+print('Illustrated layout: desktop and 320-430 px internal padding and image spacing OK')
 photo_css=(ROOT/'themes/image-centered/theme.css').read_text()
 for n in ('architecture','nature','forest'):
     assert 'url("assets/'+n+'.webp")!important' in photo_css, 'Missing photo card '+n

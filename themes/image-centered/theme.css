@@ -748,7 +748,7 @@ body[data-dendrila-theme="image-centered"] .d-footer__grid > div {
 }
 body[data-dendrila-theme="image-centered"] .d-footer__links {
     display:grid!important;
-    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
     gap:.65rem clamp(.75rem,3.5vw,3.5rem)!important;
     align-items:start!important;
     width:100%!important;
@@ -999,5 +999,13 @@ body[data-dendrila-theme="image-centered"] .d-section--block-steps .d-step :is(h
  body[data-dendrila-theme="image-centered"] .d-section--block-cards .d-card-grid>.d-card{
     grid-column:1!important;
     min-height:13rem!important;
+ }
+}
+
+/* Four legal/contact links: 4 desktop / 2 tablet-phone without orphan rows. */
+@media(max-width:52rem){
+ body[data-dendrila-theme="image-centered"] .d-footer__links{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:.75rem 1.25rem!important;
  }
 }
