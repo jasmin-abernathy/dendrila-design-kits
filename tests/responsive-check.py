@@ -73,6 +73,12 @@ for style in STYLES:
     assert 'd-home-composition' in html and html.count('d-home-tile')>=2,style+' visual flow not composed'
     assert 'class="d-footer__links"' in html,style+' static footer is not a link grid'
     assert 'V5 shared footer' in css,style+' footer grid rules missing'
+    assert 'V10 layering fix: menu must paint above hero and every content card' in css,style+' menu stacking fix missing'
+    assert 'z-index:5000!important' in css,style+' header does not outrank hero'
+    assert 'position:relative!important' in css,style+' header may be static'
+    assert 'overflow:visible!important' in css,style+' panel may be clipped'
+    assert 'z-index:20!important' in css,style+' panel stacking not enforced'
+
     assert 'grid-template-columns:repeat(4,minmax(0,1fr))' in css,style+' footer must have four desktop columns'
     assert '@media(max-width:52rem)' in css and 'grid-template-columns:repeat(2,minmax(0,1fr))' in css,style+' mobile two-column footer missing'
     assert '.d-footer__links a:focus-visible' in css,style+' keyboard focus missing'
@@ -147,7 +153,18 @@ for rule in (
  'width:calc(100% - 1.5rem)',
 ):
     assert rule in simple,'Illustrated responsive spacing missing: '+rule
-print('Illustrated layout: desktop and 320-430 px internal padding and image spacing OK')
+for rule in (
+    'V10 nested card rhythm',
+    '--d-simple-card-inset:clamp(1.85rem,3.5vw,2.65rem)',
+    '--d-simple-card-inset:clamp(1.65rem,6.3vw,2.1rem)',
+    'padding:var(--d-simple-card-inset)!important',
+    'padding-bottom:clamp(10.5rem,36vw,15rem)!important',
+    'gap:1.25rem!important',
+):
+    assert rule in simple,'Inner card margin regression: '+rule
+assert 'position:static;border-bottom:3px' in simple, 'Regression requires overriding original legacy static header'
+print('Illustrated layout: real nested cards and menu stacking repaired')
+
 photo_css=(ROOT/'themes/image-centered/theme.css').read_text()
 for n in ('architecture','nature','forest'):
     assert 'url("assets/'+n+'.webp")!important' in photo_css, 'Missing photo card '+n

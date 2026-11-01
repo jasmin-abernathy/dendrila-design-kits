@@ -952,3 +952,34 @@ body[data-dendrila-theme="dynamic-graphic"] .d-home-composition>.d-home-tile--ct
   gap:.75rem 1.25rem!important;
  }
 }
+
+
+/* V10 layering fix: menu must paint above hero and every content card. */
+body[data-dendrila-theme="dynamic-graphic"] .d-header {
+    position:relative!important;
+    z-index:5000!important;
+    isolation:isolate;
+    overflow:visible!important;
+    transform:none!important;
+    filter:none!important;
+}
+@media(max-width:64rem){
+    body[data-dendrila-theme="dynamic-graphic"] .d-header__inner{
+        position:relative!important;
+        z-index:1!important;
+        overflow:visible!important;
+        transform:none!important;
+        clip-path:none!important;
+        -webkit-mask:none!important;
+        mask:none!important;
+    }
+    body[data-dendrila-theme="dynamic-graphic"] .d-mobile-menu[open]{
+        position:relative;
+        z-index:10!important;
+    }
+    body[data-dendrila-theme="dynamic-graphic"] .d-mobile-menu__panel{
+        z-index:20!important;
+        opacity:1!important;
+        visibility:visible!important;
+    }
+}
