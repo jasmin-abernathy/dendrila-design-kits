@@ -55,3 +55,13 @@ Une page de départ Dendrila conserve une galerie éditable vide à l'installati
 Sur la page d'accueil, la section « Projets / Actualités / À propos » associe trois fonds photographiques déjà présents dans le thème : architecture.webp, nature.webp, forest.webp. Les sources et statuts juridiques de ces fichiers figurent ci-dessus. Le CSS applique un dégradé sombre, renforcé à la base de chaque carte, avec texte blanc et contour visible au clavier.
 
 Les fonds sont décoratifs et spécifiques à la présentation du thème : ils ne deviennent pas des contenus clients, ne demandent pas d'appel à un service extérieur et restent remplaçables dans la conception du kit. En dessous de 25 rem, les liens du footer passent de trois à deux colonnes pour conserver une largeur de lecture suffisante.
+
+### Thème « Très minimal » — présentation de service
+
+L'image `themes/very-minimal/assets/office.jpg` est issue de la photo
+Pexels déjà utilisée sur le site de référence Prestadmin :
+`https://www.pexels.com/photo/8297022/` (fichier source
+`https://images.pexels.com/photos/8297022/pexels-photo-8297022.jpeg`).
+Téléchargée et hébergée localement dans le kit pour éviter toute requête
+tierce lors de la consultation de l'aperçu. Image illustrative ; remplaçable
+depuis l'éditeur Dendrila. Conditions d'utilisation : licence Pexels.
