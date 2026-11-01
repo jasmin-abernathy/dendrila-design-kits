@@ -1,153 +1,62 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Dendrila — Simple avec quelques illustrations</title>
-  <link rel="stylesheet" href="../theme.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dendrila — Simple avec illustrations · Exemple services</title>
+<meta name="description" content="Aperçu fictif du thème Simple avec illustrations et de sa variante site de services.">
+<link rel="stylesheet" href="../theme.css">
+<style>
+[data-dendrila-theme="simple-illustrated"]{--dendrila-color-bg:#fff;--dendrila-color-surface:#fff;--dendrila-color-text:#191718;--dendrila-color-muted:#686264;--dendrila-color-primary:#9d2941;--dendrila-color-primary-strong:#7f1f34;--dendrila-color-accent-soft:#f8ecef;--dendrila-color-border:#e9e4e3;--dendrila-font-heading:Georgia,serif;--dendrila-font-body:Arial,Helvetica,sans-serif;--dendrila-content-max:74rem;--dendrila-section-gap:5rem}
+</style>
 </head>
-<body data-dendrila-theme="simple-illustrated">
-  <a class="d-skip-link" href="#contenu">Aller au contenu</a>
-
-  <header class="d-header">
-    <div class="d-shell d-header__inner">
-      <a class="d-brand" href="#">
-        <span class="d-brand__mark" aria-hidden="true">✦</span>
-        <span>Nom du site</span>
-      </a>
-      <nav class="d-nav" aria-label="Navigation principale">
-        <a href="#services">Services</a>
-        <a href="#apropos">À propos</a>
-        <a class="d-button" href="#contact">Nous contacter</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="contenu">
-    <section class="d-hero">
-      <div class="d-shell d-hero__grid">
-        <div>
-          <p class="d-eyebrow">Une présence claire</p>
-          <h1 class="d-title">Un site simple, humain et vivant.</h1>
-          <p class="d-lead">Le contenu reste au premier plan. Quelques formes, pictogrammes et illustrations suffisent à installer une identité sans alourdir l'interface.</p>
-          <div class="d-actions">
-            <a class="d-button" href="#services">Découvrir</a>
-            <a class="d-button d-button--outline" href="#apropos">En savoir plus</a>
-          </div>
-        </div>
-        <div class="d-media" data-media-shape="organic-tall" style="--d-media-x:50%;--d-media-y:44%;">
-          <img class="d-media__image" src="sample-media.svg" alt="Illustration abstraite de démonstration">
-        </div>
-      </div>
-    </section>
-
-    <section class="d-section" id="services">
-      <div class="d-shell">
-        <p class="d-eyebrow">Les essentiels</p>
-        <h2 class="d-heading">Une structure familière, sans monotonie.</h2>
-        <p class="d-ornament" aria-hidden="true">✦</p>
-        <div class="d-card-grid">
-          <article class="d-card">
-            <span class="d-icon" aria-hidden="true">○</span>
-            <h3 class="d-card__title">Contenu lisible</h3>
-            <p>Des cartes légères, une hiérarchie nette et suffisamment d'espace pour respirer.</p>
-          </article>
-          <article class="d-card">
-            <span class="d-icon" aria-hidden="true">◇</span>
-            <h3 class="d-card__title">Illustrations ponctuelles</h3>
-            <p>Les éléments graphiques accompagnent le message au lieu de remplacer le contenu.</p>
-          </article>
-          <article class="d-card">
-            <span class="d-icon" aria-hidden="true">⌁</span>
-            <h3 class="d-card__title">Images souples</h3>
-            <p>Le thème applique la forme et le point focal sans demander de retoucher les fichiers source.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="d-section d-section--soft" id="apropos">
-      <div class="d-shell d-split">
-        <div class="d-prose">
-          <p class="d-eyebrow">À propos</p>
-          <h2 class="d-heading">Le même média peut changer de style sans être recadré.</h2>
-          <p>La bibliothèque média conserve l'original. Le front choisit la forme, le cadrage et les petits décors selon le thème actif.</p>
-        </div>
-        <div class="d-media" data-media-shape="organic-soft" style="--d-media-aspect:5/4;--d-media-x:48%;--d-media-y:50%;">
-          <img class="d-media__image" src="sample-media.svg" alt="">
-        </div>
-      </div>
-    </section>
-
-    <section class="d-section">
-      <div class="d-shell d-prose">
-        <p class="d-eyebrow">Questions fréquentes</p>
-        <h2 class="d-heading">Composants de base</h2>
-        <div class="d-faq">
-          <details>
-            <summary>Le thème impose-t-il des couleurs ?</summary>
-            <p>Non. Les couleurs affichées ici sont uniquement des valeurs neutres de secours. L'identité du site surcharge les variables de marque.</p>
-          </details>
-          <details>
-            <summary>Faut-il préparer les images à la main ?</summary>
-            <p>Non. Les masques et le point focal sont appliqués par le thème et peuvent changer sans modifier le fichier original.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="d-section">
-      <div class="d-shell">
-        <div class="d-section__heading">
-          <p class="d-eyebrow">Médias et informations</p>
-          <h2 class="d-heading">Les composants restent légers et génériques.</h2>
-        </div>
-        <div class="d-gallery" aria-label="Galerie de démonstration">
-          <figure class="d-gallery__item">
-            <div class="d-media" data-media-shape="rounded" style="--d-media-aspect:4/3;">
-              <img class="d-media__image" src="sample-media.svg" alt="Illustration abstraite">
-            </div>
-            <figcaption class="d-caption">Une légende facultative.</figcaption>
-          </figure>
-          <figure class="d-gallery__item">
-            <div class="d-media" data-media-shape="arch" style="--d-media-aspect:4/3;">
-              <img class="d-media__image" src="sample-media.svg" alt="">
-            </div>
-          </figure>
-          <figure class="d-gallery__item">
-            <div class="d-media" data-media-shape="organic-soft" style="--d-media-aspect:4/3;">
-              <img class="d-media__image" src="sample-media.svg" alt="">
-            </div>
-          </figure>
-        </div>
-        <dl class="d-key-values" style="margin-top:1.5rem">
-          <div class="d-key-values__item"><dt>Approche</dt><dd>Simple</dd></div>
-          <div class="d-key-values__item"><dt>Illustrations</dt><dd>Ponctuelles</dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="d-cta-band" id="contact">
-      <div class="d-shell d-cta-band__inner">
-        <div>
-          <strong>Un appel à l'action reste simple et visible.</strong>
-          <p>Le texte et le bouton peuvent venir de n'importe quel kit fonctionnel.</p>
-        </div>
-        <a class="d-button" href="#">Action principale</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="d-footer">
-    <div class="d-shell d-footer__grid">
-      <div>
-        <strong>Nom du site</strong>
-        <p>Identité et contenu sont fournis par le site, pas par le design kit.</p>
-      </div>
-      <div><strong>Navigation</strong><br><a href="#services">Services</a></div>
-      <div><strong>Informations</strong><br><a href="#apropos">À propos</a></div>
-      <div><strong>Contact</strong><br><a href="#contact">Nous contacter</a></div>
-    </div>
-  </footer>
+<body data-dendrila-theme="simple-illustrated" data-dendrila-layout="service-showcase" data-dendrila-hero="split">
+<a class="d-skip-link" href="#contenu">Aller au contenu</a>
+<header class="d-header"><div class="d-shell d-header__inner">
+<a class="d-brand" href="#contenu"><span class="d-brand__mark" aria-hidden="true">◇</span><span>Atelier Clair</span></a>
+<nav class="d-nav" aria-label="Navigation principale">
+<a href="#services">Prestations</a><a href="#approche">Notre approche</a><a href="#contact">Contact</a>
+</nav></div></header>
+<main id="contenu">
+<section class="d-hero"><div class="d-shell d-hero__grid">
+<div class="d-hero__copy">
+<p class="d-eyebrow">Accompagnement de proximité · Exemple fictif</p>
+<h1 class="d-title">Libérez du temps pour ce qui compte.</h1>
+<p class="d-lead">Nous aidons les petites équipes à organiser leurs activités, simplifier leurs démarches et avancer sereinement. Un accompagnement concret, à votre rythme.</p>
+<div class="d-actions"><a class="d-button" href="#services">Découvrir les services</a><a class="d-button d-button--outline" href="#contact">Échanger sur mon besoin</a></div>
+</div>
+<div class="d-hero__media"><div class="d-media" data-media-shape="none" style="--d-media-x:50%;--d-media-y:48%">
+<img class="d-media__image" alt="Table de travail avec documents et ordinateur, photo illustrative" src="https://images.pexels.com/photos/10567174/pexels-photo-10567174.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"></div></div>
+</div></section>
+<section class="d-section d-section--block-highlights" aria-labelledby="demarches">
+<div class="d-shell"><div class="d-section__heading"><p class="d-eyebrow">À la une</p><h2 class="d-heading" id="demarches">Les informations utiles, tout de suite</h2></div>
+<div class="d-highlights">
+<a class="d-highlight" href="#services"><span class="d-highlight__eyebrow">Vos démarches</span><span class="d-highlight__text">Une méthode claire pour préparer vos informations et éviter les retours en arrière.</span><span class="d-highlight__action">Voir la méthode <span aria-hidden="true">→</span></span></a>
+<a class="d-highlight" href="#contact"><span class="d-highlight__eyebrow">Un projet à préparer</span><span class="d-highlight__text">Expliquez votre situation : nous déterminons ensemble la meilleure façon de vous accompagner.</span><span class="d-highlight__action">Nous contacter <span aria-hidden="true">→</span></span></a>
+</div></div></section>
+<section class="d-section d-section--block-cards" id="services">
+<div class="d-shell"><div class="d-section__heading"><p class="d-eyebrow">Prestations</p><h2 class="d-heading">Quatre façons de vous simplifier le quotidien</h2></div>
+<div class="d-card-grid">
+<a href="#contact" class="d-card d-card--linked"><span class="d-icon" aria-hidden="true">✓</span><h3 class="d-card__title">Mettre de l'ordre</h3><p>Clarifier vos documents, classer ce qui compte et retrouver facilement les informations.</p></a>
+<a href="#contact" class="d-card d-card--linked"><span class="d-icon" aria-hidden="true">◷</span><h3 class="d-card__title">Suivre les échéances</h3><p>Avancer avec des priorités identifiées et un calendrier adapté à votre activité.</p></a>
+<a href="#contact" class="d-card d-card--linked"><span class="d-icon" aria-hidden="true">▦</span><h3 class="d-card__title">Renforcer l'équipe</h3><p>Bénéficier d'un appui ponctuel ou régulier pour les périodes chargées.</p></a>
+<a href="#contact" class="d-card d-card--linked"><span class="d-icon" aria-hidden="true">↻</span><h3 class="d-card__title">Préparer un changement</h3><p>Organiser les étapes d'une transition en gardant une vision claire de la suite.</p></a>
+</div></div></section>
+<section class="d-section d-section--soft d-section--block-benefits" id="approche">
+<div class="d-shell"><div class="d-section__heading"><p class="d-eyebrow">Notre approche</p><h2 class="d-heading">Une organisation qui travaille pour vous</h2></div>
+<div class="d-benefits">
+<div class="d-benefit"><span class="d-benefit__symbol" aria-hidden="true">✓</span><div><h3>Moins d'oublis</h3><p>Un suivi régulier des points essentiels.</p></div></div>
+<div class="d-benefit"><span class="d-benefit__symbol" aria-hidden="true">◷</span><div><h3>Du temps retrouvé</h3><p>Vous vous concentrez sur votre activité.</p></div></div>
+<div class="d-benefit"><span class="d-benefit__symbol" aria-hidden="true">◇</span><div><h3>Clarté</h3><p>Des informations faciles à retrouver.</p></div></div>
+<div class="d-benefit"><span class="d-benefit__symbol" aria-hidden="true">☆</span><div><h3>Écoute</h3><p>Une organisation adaptée à vos habitudes.</p></div></div>
+<div class="d-benefit"><span class="d-benefit__symbol" aria-hidden="true">▥</span><div><h3>Continuité</h3><p>Des dossiers transmissibles et à jour.</p></div></div>
+</div></div></section>
+<section class="d-section"><div class="d-shell d-split">
+<div class="d-prose"><p class="d-eyebrow">À propos</p><h2 class="d-heading">Une relation simple et un travail soigné.</h2><p>Chaque mission commence par une discussion : comprendre votre situation, définir les priorités et avancer sans ajouter de complexité inutile.</p><p>Les contenus, les couleurs et les images de cette démonstration sont des exemples remplaçables à l'installation.</p></div>
+<div class="d-media" data-media-shape="rounded" style="--d-media-aspect:5/4"><img class="d-media__image" alt="Documents et calculatrice sur un bureau" src="https://images.pexels.com/photos/8297022/pexels-photo-8297022.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200"></div>
+</div></section>
+<section class="d-cta-band" id="contact"><div class="d-shell d-cta-band__inner"><div><strong>Parlons de votre projet</strong><p>Un contact direct, un formulaire ou un parcours guidé sont possibles, au choix du site.</p></div><a class="d-button" href="mailto:bonjour@example.org">Nous écrire</a></div></section>
+</main>
+<footer class="d-footer"><div class="d-shell d-footer__grid"><strong>Atelier Clair</strong><p>Site de démonstration fictif, sans collecte de données.</p><a href="#contenu">Retour en haut</a></div></footer>
 </body>
 </html>

@@ -65,7 +65,7 @@ test -f "themes/dynamic-graphic/assets/motifs/diagonal-grid.svg"
 test -f "docs/PREVIEW-MEDIA.md"
 test -f "docs/DECORATIVE-SYSTEM.md"
 
-grep -Fq '"version": "0.3.1"' themes/simple-illustrated/theme.json
+grep -Fq '"version": "0.3.2"' themes/simple-illustrated/theme.json
 grep -Fq '"version": "0.2.0"' themes/image-centered/theme.json
 grep -Fq '"version": "0.1.0"' themes/quiet-elegant/theme.json
 grep -Fq '"version": "0.1.1"' themes/very-minimal/theme.json
@@ -176,3 +176,11 @@ grep -Fq 'domaine public' docs/PREVIEW-MEDIA.md
 grep -Fq 'CC0 1.0' docs/PREVIEW-MEDIA.md
 
 echo "Dendrila design kit checks passed."
+
+# The base services variant must stay genuinely different, accessible and optional.
+grep -Fq 'data-dendrila-layout="service-showcase"' themes/simple-illustrated/preview/index.html
+grep -Fq 'd-highlights' themes/simple-illustrated/preview/index.html
+grep -Fq 'd-benefits' themes/simple-illustrated/preview/index.html
+grep -Fq 'd-card--linked' themes/simple-illustrated/preview/index.html
+grep -Fq 'data-dendrila-layout="service-showcase"' themes/simple-illustrated/theme.css
+! grep -Ei 'Prestadmin|Le Jardinier' themes/simple-illustrated/preview/index.html themes/simple-illustrated/theme.css >/dev/null

@@ -4,7 +4,7 @@
     {
       "id": "simple-illustrated",
       "design_style_id": "simple-illustrated",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "path": "themes/simple-illustrated",
       "manifest": "theme.json"
     },

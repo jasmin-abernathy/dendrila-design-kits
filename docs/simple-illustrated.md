@@ -134,3 +134,11 @@ Ces ajustements restent purement visuels et ne modifient ni le contenu ni les m�
 ## Décor sans asset client
 
 Les formes organiques, arches et cercles sont appliqués au média source par CSS/SVG. Le motif `organic-line` est fourni par le thème et peut être activé via les attributs d’illustration du renderer. Aucun blob, masque ou illustration décorative n’est demandé à l’utilisateur.
+
+## Variante professionnelle de services
+
+Le thème propose une composition native service-showcase, inspirée des besoins relevés sur les vrais sites de petites structures : en-tête épuré, grand bandeau texte-photo, encarts d'information cliquables, prestations réparties en grille, bénéfices courts et contact visible.
+
+L'exemple livré dans preview/index.html représente Atelier Clair, une activité fictive. La marque, les textes et la palette ne sont pas des réglages obligatoires : chaque installation garde ses couleurs, ses médias et ses modules. Les photos de démonstration proviennent de Pexels et ne sont pas incorporées dans les sites créés. Le mode standard reste disponible.
+
+Aucun assistant conversationnel ne fait partie du thème : le module facultatif « Parcours guidé » est un choix indépendant du style, parmi les modes de contact proposés.

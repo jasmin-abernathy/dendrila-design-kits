@@ -3,8 +3,8 @@
   "id": "simple-illustrated",
   "design_style_id": "simple-illustrated",
   "label": "Simple avec quelques illustrations",
-  "version": "0.3.1",
-  "description": "Thème de base clair et respirant, avec illustrations ponctuelles, cartes sobres et médias façonnés sans modifier les fichiers source.",
+  "version": "0.3.2",
+  "description": "Thème polyvalent avec une variante de services inspirée des sites professionnels : photo en bandeau, encarts, services et bénéfices, sans marque imposée.",
   "entrypoint": "theme.css",
   "preview": "preview/index.html",
   "components": [
@@ -20,7 +20,11 @@
     "gallery",
     "key-values",
     "embed",
-    "statistics"
+    "statistics",
+    "highlights",
+    "benefits",
+    "service-showcase",
+    "linked-cards"
   ],
   "media_shapes": [
     "auto",
