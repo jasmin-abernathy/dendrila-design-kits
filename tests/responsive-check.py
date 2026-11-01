@@ -169,7 +169,21 @@ for rule in (
 ):
     assert rule in simple,'Inner card margin regression: '+rule
 assert 'position:static;border-bottom:3px' in simple, 'Regression requires overriding original legacy static header'
-print('Illustrated layout: real nested cards and menu stacking repaired')
+# The actual failure was a shell without padding INSIDE the soft section:
+# outer card inset did not create visible space from the section backdrop.
+for rule in (
+    'V12 MOBILE: real inner section gutters',
+    '--d-simple-inner-gutter:clamp(1.25rem,5.5vw,1.85rem)',
+    '.d-home-tile--cards>.d-section>.d-shell,',
+    '.d-home-tile--key-values>.d-section>.d-shell{',
+    'padding:var(--d-simple-inner-gutter)!important',
+    'main>.d-section--block-cards>.d-shell,',
+    'main>.d-section--block-key-values>.d-shell{',
+    '--d-simple-inner-gutter:1.15rem',
+):
+    assert rule in simple,'Mobile inner section padding missing: '+rule
+print('Illustrated layout: content/soft-section gutters and 320px fallback validated')
+
 
 photo_css=(ROOT/'themes/image-centered/theme.css').read_text()
 for n in ('architecture','nature','forest'):
