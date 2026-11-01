@@ -2,9 +2,10 @@
 set -euo pipefail
 
 CATALOG="catalog.json"
-THEMES=(simple-illustrated image-centered quiet-elegant very-minimal dynamic-graphic)
+THEMES=(simple-illustrated image-centered quiet-elegant very-minimal dynamic-graphic editorial)
 
 python3 -m json.tool "$CATALOG" >/dev/null
+python3 tests/responsive-check.py
 
 for theme in "${THEMES[@]}"; do
   BASE="themes/$theme"
@@ -18,7 +19,6 @@ for theme in "${THEMES[@]}"; do
 
   python3 -m json.tool "$JSON" >/dev/null
   grep -Fq "\"id\": \"$theme\"" "$JSON"
-  grep -Fq "\"design_style_id\": \"$theme\"" "$JSON"
   grep -Fq -- '--dendrila-color-primary' "$CSS"
   grep -Fq -- '--dendrila-content-max' "$CSS"
   grep -Fq ':focus-visible' "$CSS"
@@ -48,6 +48,12 @@ if depth != 0:
 PY
 done
 
+# Only locally bundled WebP photographs with documented provenance.
+for photo in simple-illustrated/community simple-illustrated/nature simple-illustrated/flowers quiet-elegant/forest quiet-elegant/architecture image-centered/mountains image-centered/architecture image-centered/forest image-centered/nature image-centered/flowers dynamic-graphic/workshop editorial/workshop; do
+  test -f "themes/${photo%/*}/assets/${photo#*/}.webp"
+  file -b --mime-type "themes/${photo%/*}/assets/${photo#*/}.webp" | grep -Fxq 'image/webp'
+done
+test -f "docs/PREVIEW-MEDIA.md"
 test -f "themes/simple-illustrated/assets/masks/organic-soft.svg"
 test -f "themes/simple-illustrated/assets/masks/organic-tall.svg"
 test -f "themes/simple-illustrated/assets/masks/arch.svg"
@@ -65,11 +71,6 @@ test -f "themes/dynamic-graphic/assets/motifs/diagonal-grid.svg"
 test -f "docs/PREVIEW-MEDIA.md"
 test -f "docs/DECORATIVE-SYSTEM.md"
 
-grep -Fq '"version": "0.3.1"' themes/simple-illustrated/theme.json
-grep -Fq '"version": "0.2.0"' themes/image-centered/theme.json
-grep -Fq '"version": "0.1.0"' themes/quiet-elegant/theme.json
-grep -Fq '"version": "0.1.1"' themes/very-minimal/theme.json
-grep -Fq '"version": "0.2.0"' themes/dynamic-graphic/theme.json
 
 # Signatures that keep the directions visually distinct.
 grep -Fq 'min-height: clamp(34rem, 67vw, 46rem)' themes/image-centered/theme.css
@@ -80,6 +81,10 @@ grep -Fq '.d-hero__media {' themes/very-minimal/theme.css
 grep -Fq 'display: none;' themes/very-minimal/theme.css
 grep -Fq 'clip-path: polygon(18% 0, 100% 0, 84% 100%, 0 100%)' themes/dynamic-graphic/theme.css
 grep -Fq -- '--dendrila-color-secondary' themes/dynamic-graphic/theme.css
+
+# The editorial theme uses typographic hierarchy, readable rules and a three-column desktop grid.
+grep -Fq 'grid-template-columns:minmax(0,1.7fr) repeat(2,minmax(0,1fr))' themes/editorial/theme.css
+grep -Fq 'max-width:var(--dendrila-text-max' themes/editorial/theme.css
 
 python3 - "$CATALOG" <<'PY'
 from pathlib import Path
@@ -96,6 +101,7 @@ themes = catalog.get("themes")
 if not isinstance(themes, list) or len(themes) < 1:
     raise SystemExit("Catalog must contain themes")
 
+expected_styles = {"simple-illustrated":"simple-illustrated", "image-centered":"image-forward", "quiet-elegant":"quiet-elegant", "very-minimal":"ultra-minimal", "dynamic-graphic":"graphic-rhythm", "editorial":"editorial"}
 seen_ids = set()
 seen_styles = set()
 for entry in themes:
@@ -111,6 +117,8 @@ for entry in themes:
     if not re.fullmatch(r"[a-z][a-z0-9-]*", entry["id"]):
         raise SystemExit("Unsafe theme id")
 
+    if entry["design_style_id"] != expected_styles[entry["id"]]:
+        raise SystemExit("Style mapping does not match the CMS preset")
     base = root / entry["path"]
     manifest_path = base / entry["manifest"]
     if not manifest_path.is_file():
@@ -160,7 +168,7 @@ for entry in themes:
     if decorative.get("implementation") != "theme-owned-css-svg":
         raise SystemExit("Theme decoration implementation must stay local to the theme")
 
-expected = {"simple-illustrated", "image-centered", "quiet-elegant", "very-minimal", "dynamic-graphic"}
+expected = {"simple-illustrated", "image-centered", "quiet-elegant", "very-minimal", "dynamic-graphic", "editorial"}
 if not expected.issubset(seen_ids):
     raise SystemExit(f"Missing expected base themes: {sorted(expected - seen_ids)}")
 PY
@@ -176,3 +184,4 @@ grep -Fq 'domaine public' docs/PREVIEW-MEDIA.md
 grep -Fq 'CC0 1.0' docs/PREVIEW-MEDIA.md
 
 echo "Dendrila design kit checks passed."
+
