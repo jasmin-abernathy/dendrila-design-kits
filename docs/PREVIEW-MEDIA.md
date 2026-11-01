@@ -58,7 +58,7 @@ Les fonds sont décoratifs et spécifiques à la présentation du thème : ils n
 
 ### Thème « Très minimal » — présentation de service
 
-L'image `themes/very-minimal/assets/office.jpg` est issue de la photo
+L'image `themes/very-minimal/assets/office.webp` est issue de la photo
 Pexels déjà utilisée sur le site de référence Prestadmin :
 `https://www.pexels.com/photo/8297022/` (fichier source
 `https://images.pexels.com/photos/8297022/pexels-photo-8297022.jpeg`).
