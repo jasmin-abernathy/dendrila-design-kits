@@ -1,5 +1,7 @@
 # Dendrila Design Kits
 
+[English](README.en.md) · [Contribuer](CONTRIBUTING.md)
+
 Bibliothèque de thèmes/fronts réutilisables pour Dendrila CMS.
 
 Ce dépôt contient la **couche de présentation** : structure HTML/CSS, composants visuels, médias de prévisualisation et exemples. Les contrats de styles, tokens sémantiques et contraintes d'accessibilité restent définis dans `jasmin-abernathy/dendrila-cms`.
@@ -22,7 +24,7 @@ Un design kit ne contient ni logique métier, ni nom de client, ni palette impos
 
 ### `simple-illustrated` — Simple avec quelques illustrations
 
-Structure claire, sections respirantes, illustrations ponctuelles, formes douces et médias non destructifs. Ce thème est issu de la généralisation du travail réalisé pour Materceleste, sans reprendre son identité.
+Structure claire, sections respirantes, illustrations ponctuelles, formes douces et médias non destructifs. Ce thème généralise des principes de composition réutilisables, sans reprendre une identité cliente.
 
 ### `image-centered` — Centré sur les images
 
@@ -83,3 +85,16 @@ Les attributs déjà exposés par le renderer pilotent ce comportement :
 - `data-dendrila-illustration-frequency` pour désactiver ou doser le décor.
 
 Voir `docs/DECORATIVE-SYSTEM.md`.
+
+
+## Un catalogue participatif
+
+Designers, intégrateurs HTML/CSS, traducteurs et testeurs : proposez une direction graphique originale, améliorez un thème ou signalez un problème. Les contributions sont relues avant leur intégration ; aucun code tiers n’est chargé automatiquement par le CMS.
+
+- [Guide de contribution](CONTRIBUTING.md)
+- [Créer un thème à partir du kit de démarrage](starter/README.md)
+- [Proposer une idée](https://github.com/jasmin-abernathy/dendrila-design-kits/issues/new/choose)
+- [Crédits et licences des ressources](docs/PREVIEW-MEDIA.md)
+- [Statut de la licence](LICENSE.md)
+
+La licence globale est en attente de confirmation par le mainteneur. Le catalogue est en développement ; ne pas confondre les cinq thèmes de main avec les six aperçus exportés sur le site Dendrila.

@@ -1,0 +1,5 @@
+[data-dendrila-theme="your-theme"] { color:var(--dendrila-color-text,#202020); background:var(--dendrila-color-bg,#fff); font-family:var(--dendrila-font-body,system-ui); }
+[data-dendrila-theme="your-theme"] .d-shell { max-width:var(--dendrila-content-max,68rem); margin-inline:auto; padding:1rem; }
+[data-dendrila-theme="your-theme"] a { color:var(--dendrila-color-primary,#20563e); }
+[data-dendrila-theme="your-theme"] :focus-visible { outline:3px solid currentColor; outline-offset:3px; }
+@media(prefers-reduced-motion:reduce) { [data-dendrila-theme="your-theme"] * { animation:none!important; transition:none!important; } }

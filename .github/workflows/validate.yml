@@ -3,6 +3,9 @@ name: Validate design kits
 on:
   push:
     paths:
+      - "catalog.json"
+      - "schemas/**"
+      - "starter/**"
       - "themes/**"
       - "tests/**"
       - "docs/**"
@@ -10,6 +13,9 @@ on:
       - ".github/workflows/validate.yml"
   pull_request:
     paths:
+      - "catalog.json"
+      - "schemas/**"
+      - "starter/**"
       - "themes/**"
       - "tests/**"
       - "docs/**"

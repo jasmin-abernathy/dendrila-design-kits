@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "your-theme",
+  "design_style_id": "your-theme",
+  "label": "Your theme",
+  "version": "0.1.0",
+  "description": "Describe your visual direction",
+  "entrypoint": "theme.css",
+  "preview": "preview/index.html",
+  "components": [
+    "header",
+    "section",
+    "footer"
+  ],
+  "media_shapes": [
+    "none"
+  ],
+  "brand_tokens": [
+    "--dendrila-color-bg",
+    "--dendrila-color-surface",
+    "--dendrila-color-text",
+    "--dendrila-color-muted",
+    "--dendrila-color-primary",
+    "--dendrila-color-primary-strong",
+    "--dendrila-color-accent-soft",
+    "--dendrila-color-border",
+    "--dendrila-font-heading",
+    "--dendrila-font-body"
+  ],
+  "accessibility": {
+    "focus_visible": true,
+    "reduced_motion": true,
+    "no_autoplay_media": true
+  },
+  "required_style_tokens": [
+    "--dendrila-content-max",
+    "--dendrila-section-gap",
+    "--dendrila-text-max",
+    "--dendrila-radius",
+    "--dendrila-border-width",
+    "--dendrila-shadow",
+    "--dendrila-heading-scale",
+    "--dendrila-media-emphasis",
+    "--dendrila-accent-strength",
+    "--dendrila-motion-duration"
+  ],
+  "decorative_system": {
+    "no_upload_required": true,
+    "motifs": [
+      "none"
+    ],
+    "default_motif": "none",
+    "image_shapes": [
+      "none"
+    ],
+    "implementation": "theme-owned-css-svg"
+  }
+}

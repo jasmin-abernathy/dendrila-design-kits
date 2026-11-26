@@ -2,7 +2,10 @@
 set -euo pipefail
 
 CATALOG="catalog.json"
-THEMES=(simple-illustrated image-centered quiet-elegant very-minimal dynamic-graphic)
+# Discover all catalogue entries, including future contributions.
+THEME_IDS=$(python3 -c 'import json; print("\n".join(x["id"] for x in json.load(open("catalog.json"))["themes"]))')
+mapfile -t THEMES <<< "$THEME_IDS"
+test "${#THEMES[@]}" -gt 0
 
 python3 -m json.tool "$CATALOG" >/dev/null
 
@@ -65,11 +68,6 @@ test -f "themes/dynamic-graphic/assets/motifs/diagonal-grid.svg"
 test -f "docs/PREVIEW-MEDIA.md"
 test -f "docs/DECORATIVE-SYSTEM.md"
 
-grep -Fq '"version": "0.3.1"' themes/simple-illustrated/theme.json
-grep -Fq '"version": "0.2.0"' themes/image-centered/theme.json
-grep -Fq '"version": "0.1.0"' themes/quiet-elegant/theme.json
-grep -Fq '"version": "0.1.1"' themes/very-minimal/theme.json
-grep -Fq '"version": "0.2.0"' themes/dynamic-graphic/theme.json
 
 # Signatures that keep the directions visually distinct.
 grep -Fq 'min-height: clamp(34rem, 67vw, 46rem)' themes/image-centered/theme.css
@@ -111,7 +109,11 @@ for entry in themes:
     if not re.fullmatch(r"[a-z][a-z0-9-]*", entry["id"]):
         raise SystemExit("Unsafe theme id")
 
+    if entry["path"] != "themes/" + entry["id"] or entry["manifest"] != "theme.json":
+        raise SystemExit("Unsafe or unexpected catalogue path")
     base = root / entry["path"]
+    if base.is_symlink() or not base.is_dir():
+        raise SystemExit("Invalid theme directory")
     manifest_path = base / entry["manifest"]
     if not manifest_path.is_file():
         raise SystemExit(f"Missing manifest: {manifest_path}")
@@ -124,6 +126,8 @@ for entry in themes:
     if manifest.get("version") != entry["version"]:
         raise SystemExit("Catalog version does not match manifest")
 
+    if manifest.get("entrypoint") != "theme.css" or manifest.get("preview") != "preview/index.html":
+        raise SystemExit("Unsupported entrypoint or preview path")
     entrypoint = base / manifest["entrypoint"]
     preview = base / manifest["preview"]
     if not entrypoint.is_file():
@@ -131,6 +135,18 @@ for entry in themes:
     if not preview.is_file():
         raise SystemExit(f"Missing theme preview: {preview}")
 
+    if entrypoint.is_symlink() or preview.is_symlink():
+        raise SystemExit("Symlinked theme file")
+    if entry["id"] not in {"simple-illustrated", "image-centered", "quiet-elegant", "very-minimal", "dynamic-graphic"}:
+        for f in base.rglob("*"):
+            if f.is_symlink() or (f.is_file() and f.suffix.lower() not in {".css", ".html", ".json", ".svg", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".md", ".txt", ".avif"}):
+                raise SystemExit(f"Unsupported contribution file: {f}")
+            if f.is_file() and f.suffix.lower() in {".css", ".html", ".svg"}:
+                body = f.read_text(encoding="utf-8")
+                if re.search(r"(?i)<script\b|\bon[a-z]+\s*=|javascript:|<iframe\b|<object\b|<embed\b|@import\b|url\(\s*['\"]?(?:https?:)?//|(?:src|href)\s*=\s*['\"](?:https?:)?//", body):
+                    raise SystemExit(f"Review forbidden active or remote content: {f}")
+        if not (base / "CREDITS.md").is_file():
+            raise SystemExit("New theme requires CREDITS.md")
     tokens = manifest.get("required_style_tokens")
     if not isinstance(tokens, list) or not tokens or len(tokens) != len(set(tokens)):
         raise SystemExit("Theme must declare unique required_style_tokens")
